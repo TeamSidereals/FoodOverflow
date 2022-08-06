@@ -46,7 +46,6 @@ public class FoodOverflowMod
     private void processIMC(final InterModProcessEvent event)
     {
     }
-    // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
     public void onServerStarting(FMLServerStartingEvent event) {
     }
