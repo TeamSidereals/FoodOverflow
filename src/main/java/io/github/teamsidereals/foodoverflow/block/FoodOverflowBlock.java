@@ -1,4 +1,4 @@
-package com.teamsidereals.foodoverflow.block;
+package io.github.teamsidereals.foodoverflow.block;
 
 import net.minecraft.block.Block;
 
