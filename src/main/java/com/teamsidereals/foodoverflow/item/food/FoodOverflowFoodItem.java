@@ -1,4 +1,4 @@
-package com.teamsidereals.foodoverflow.item;
+package com.teamsidereals.foodoverflow.item.food;
 
 import net.minecraft.item.Item;
 
