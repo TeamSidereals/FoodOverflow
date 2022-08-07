@@ -1,6 +1,7 @@
 package io.github.teamsidereals.foodoverflow.event;
 
 import io.github.teamsidereals.foodoverflow.FoodOverflowMod;
+import io.github.teamsidereals.foodoverflow.item.food.fruitandvegatable.FoodOverflowFruitAndVegetableItem;
 import io.github.teamsidereals.foodoverflow.item.food.savory.FoodOverflowSavoryItem;
 import io.github.teamsidereals.foodoverflow.item.food.sweet.FoodOverflowSweetItem;
 import net.minecraft.entity.Entity;
@@ -32,7 +33,15 @@ public class FoodOverflowEvent {
 
     private static final List<Item> vanillaSweetFood = new ArrayList<>(
             Arrays.asList(
-                    Items.COOKIE, Items.SWEET_BERRIES, Items.PUMPKIN_PIE
+                    Items.COOKIE, Items.PUMPKIN_PIE
+            )
+    );
+
+    private static final List<Item> vanillaFruitAndVegetable = new ArrayList<>(
+            Arrays.asList(
+                    Items.SWEET_BERRIES, Items.APPLE, Items.BEETROOT,
+                    Items.BEETROOT_SOUP, Items.CARROT, Items.MELON_SLICE,
+                    Items.DRIED_KELP, Items.MUSHROOM_STEW
             )
     );
 
@@ -40,9 +49,10 @@ public class FoodOverflowEvent {
     private static List<Integer> savoryFoodCount = new ArrayList<>();
     private static List<Integer> sweetFoodCount = new ArrayList<>();
     private static List<Integer> sugarRushTick = new ArrayList<>();
+    private static List<Integer> healthyFoodCount = new ArrayList<>();
 
     @SubscribeEvent
-    public static void setTickWhenJoin(EntityJoinWorldEvent event){
+    public static void setDataWhenJoin(EntityJoinWorldEvent event){
         Entity entity = event.getEntity();
         World world = event.getWorld();
         if (!world.isClientSide){
@@ -53,6 +63,7 @@ public class FoodOverflowEvent {
                     savoryFoodCount.add(0);
                     sweetFoodCount.add(0);
                     sugarRushTick.add(0);
+                    healthyFoodCount.add(0);
                 }
             }
         }
@@ -72,6 +83,10 @@ public class FoodOverflowEvent {
                         || event.getItem().getItem() instanceof FoodOverflowSweetItem){
                     SugarRush(player);
                 }
+                if (vanillaFruitAndVegetable.contains(event.getItem().getItem())
+                        || event.getItem().getItem() instanceof FoodOverflowFruitAndVegetableItem){
+                    Healthy(player);
+                }
             }
         }
     }
@@ -82,7 +97,7 @@ public class FoodOverflowEvent {
                 savoryFoodCount.get(playerList.indexOf(player.getScoreboardName())) + 1
         );
         if (savoryFoodCount.get(playerList.indexOf(player.getScoreboardName())) == 5){
-            player.displayClientMessage(new TranslationTextComponent("Your stomach is full, you feel stronger").withStyle(TextFormatting.BOLD).withStyle(TextFormatting.DARK_GREEN), true);
+            player.displayClientMessage(new TranslationTextComponent("Your stomach is full, you feel stronger").withStyle(TextFormatting.BOLD).withStyle(TextFormatting.RED), true);
             player.addEffect(new EffectInstance(Effects.DAMAGE_RESISTANCE, 200));
             player.addEffect(new EffectInstance(Effects.ABSORPTION, 200));
             player.addEffect(new EffectInstance(Effects.MOVEMENT_SLOWDOWN, 200));
@@ -113,6 +128,19 @@ public class FoodOverflowEvent {
             player.addEffect(new EffectInstance(Effects.MOVEMENT_SLOWDOWN, 100, 1));
             player.addEffect(new EffectInstance(Effects.DIG_SLOWDOWN, 100, 1));
             sugarRushTick.set(playerList.indexOf(player.getScoreboardName()), 0);
+        }
+    }
+
+    public static void Healthy(PlayerEntity player){
+        healthyFoodCount.set(
+                playerList.indexOf(player.getScoreboardName()),
+                healthyFoodCount.get(playerList.indexOf(player.getScoreboardName())) + 1
+        );
+        if (healthyFoodCount.get(playerList.indexOf(player.getScoreboardName())) == 5){
+            player.displayClientMessage(new TranslationTextComponent("Your body feel pleased from healthy food").withStyle(TextFormatting.BOLD).withStyle(TextFormatting.DARK_GREEN), true);
+            player.addEffect(new EffectInstance(Effects.REGENERATION, 100));
+            player.addEffect(new EffectInstance(Effects.NIGHT_VISION, 100));
+            healthyFoodCount.set(playerList.indexOf(player.getScoreboardName()), 0);
         }
     }
 }
