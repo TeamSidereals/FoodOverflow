@@ -1,6 +1,7 @@
 package io.github.teamsidereals.foodoverflow.event;
 
 import io.github.teamsidereals.foodoverflow.FoodOverflowMod;
+import io.github.teamsidereals.foodoverflow.item.food.bland.FoodOverflowBlandItem;
 import io.github.teamsidereals.foodoverflow.item.food.fruitandvegatable.FoodOverflowFruitAndVegetableItem;
 import io.github.teamsidereals.foodoverflow.item.food.savory.FoodOverflowSavoryItem;
 import io.github.teamsidereals.foodoverflow.item.food.sweet.FoodOverflowSweetItem;
@@ -8,6 +9,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
+import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.util.text.TextFormatting;
@@ -45,11 +47,18 @@ public class FoodOverflowEvent {
             )
     );
 
+    private static final List<Item> additionBlandFood = new ArrayList<>(
+            Arrays.asList(
+                    Items.BREAD, Items.BAKED_POTATO, Items.POTATO
+            )
+    );
+
     private static List<String> playerList = new ArrayList<>();
     private static List<Integer> savoryFoodCount = new ArrayList<>();
     private static List<Integer> sweetFoodCount = new ArrayList<>();
     private static List<Integer> sugarRushTick = new ArrayList<>();
     private static List<Integer> healthyFoodCount = new ArrayList<>();
+    private static List<Integer> blandFoodCount = new ArrayList<>();
 
     @SubscribeEvent
     public static void setDataWhenJoin(EntityJoinWorldEvent event){
@@ -64,6 +73,7 @@ public class FoodOverflowEvent {
                     sweetFoodCount.add(0);
                     sugarRushTick.add(0);
                     healthyFoodCount.add(0);
+                    blandFoodCount.add(0);
                 }
             }
         }
@@ -86,6 +96,10 @@ public class FoodOverflowEvent {
                 if (additionFruitAndVegetable.contains(event.getItem().getItem())
                         || event.getItem().getItem() instanceof FoodOverflowFruitAndVegetableItem){
                     Healthy(player);
+                }
+                if (additionBlandFood.contains(event.getItem().getItem())
+                        || event.getItem().getItem() instanceof FoodOverflowBlandItem){
+                    Neutralize(player);
                 }
             }
         }
@@ -141,6 +155,27 @@ public class FoodOverflowEvent {
             player.addEffect(new EffectInstance(Effects.REGENERATION, 100));
             player.addEffect(new EffectInstance(Effects.NIGHT_VISION, 100));
             healthyFoodCount.set(playerList.indexOf(player.getScoreboardName()), 0);
+        }
+    }
+
+    public static void Neutralize(PlayerEntity player){
+        blandFoodCount.set(
+                playerList.indexOf(player.getScoreboardName()),
+                blandFoodCount.get(playerList.indexOf(player.getScoreboardName())) + 1
+        );
+        if (blandFoodCount.get(playerList.indexOf(player.getScoreboardName())) == 10){
+            player.displayClientMessage(new TranslationTextComponent("You feel fine, cleanse all bad effect").withStyle(TextFormatting.BOLD).withStyle(TextFormatting.WHITE), true);
+            Map<Effect, EffectInstance> effectMap = player.getActiveEffectsMap();
+            List<Effect> badEffectList = new ArrayList<>();
+            for (Map.Entry<Effect, EffectInstance> tracker : effectMap.entrySet()){
+                if (!tracker.getKey().isBeneficial()){
+                    badEffectList.add(tracker.getKey());
+                }
+            }
+            for (Effect badEffect : badEffectList){
+                player.removeEffect(badEffect);
+            }
+            blandFoodCount.set(playerList.indexOf(player.getScoreboardName()), 0);
         }
     }
 }
