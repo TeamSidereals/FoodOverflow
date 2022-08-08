@@ -23,7 +23,7 @@ import java.util.*;
 
 @Mod.EventBusSubscriber(modid = FoodOverflowMod.MODID)
 public class FoodOverflowEvent {
-    private static final List<Item> vanillaSavoryFood = new ArrayList<>(
+    private static final List<Item> additionSavoryFood = new ArrayList<>(
             Arrays.asList(
                     Items.COOKED_BEEF, Items.COOKED_COD, Items.COOKED_CHICKEN,
                     Items.COOKED_MUTTON, Items.COOKED_RABBIT, Items.COOKED_PORKCHOP,
@@ -31,13 +31,13 @@ public class FoodOverflowEvent {
             )
     );
 
-    private static final List<Item> vanillaSweetFood = new ArrayList<>(
+    private static final List<Item> additionSweetFood = new ArrayList<>(
             Arrays.asList(
                     Items.COOKIE, Items.PUMPKIN_PIE
             )
     );
 
-    private static final List<Item> vanillaFruitAndVegetable = new ArrayList<>(
+    private static final List<Item> additionFruitAndVegetable = new ArrayList<>(
             Arrays.asList(
                     Items.SWEET_BERRIES, Items.APPLE, Items.BEETROOT,
                     Items.BEETROOT_SOUP, Items.CARROT, Items.MELON_SLICE,
@@ -75,15 +75,15 @@ public class FoodOverflowEvent {
         if(!world.isClientSide && event.getEntity() instanceof PlayerEntity){
             PlayerEntity player = (PlayerEntity) event.getEntity();
             if (player.getUseItemRemainingTicks() == 1){
-                if (vanillaSavoryFood.contains(event.getItem().getItem())
+                if (additionSavoryFood.contains(event.getItem().getItem())
                         || event.getItem().getItem() instanceof FoodOverflowSavoryItem){
                     FullBelly(player);
                 }
-                if (vanillaSweetFood.contains(event.getItem().getItem())
+                if (additionSweetFood.contains(event.getItem().getItem())
                         || event.getItem().getItem() instanceof FoodOverflowSweetItem){
                     SugarRush(player);
                 }
-                if (vanillaFruitAndVegetable.contains(event.getItem().getItem())
+                if (additionFruitAndVegetable.contains(event.getItem().getItem())
                         || event.getItem().getItem() instanceof FoodOverflowFruitAndVegetableItem){
                     Healthy(player);
                 }
