@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "o",
+    "I"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:stick"
+    },
+    "o": {
+      "item": "foodoverflow:caramel"
+    }
+  },
+  "result": {
+    "item": "foodoverflow:lollipop",
+    "count": 1
+  }
+}
