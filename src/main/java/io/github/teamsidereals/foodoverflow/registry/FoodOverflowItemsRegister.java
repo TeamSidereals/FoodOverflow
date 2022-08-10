@@ -2,6 +2,7 @@ package io.github.teamsidereals.foodoverflow.registry;
 
 import io.github.teamsidereals.foodoverflow.FoodOverflowMod;
 import io.github.teamsidereals.foodoverflow.item.FoodOverflowItemGroup;
+import io.github.teamsidereals.foodoverflow.item.food.savory.FoodOverflowSavoryItem;
 import io.github.teamsidereals.foodoverflow.item.food.sweet.FoodOverflowSweetItem;
 import net.minecraft.item.Food;
 import net.minecraft.item.Item;
@@ -28,6 +29,17 @@ public class FoodOverflowItemsRegister {
                             .food(new Food.Builder()
                                     .nutrition(1)
                                     .saturationMod(1f)
+                                    .fast()
+                                    .build())
+            )
+    );
+
+    public static final RegistryObject<Item> SANDWICH = ITEMS.register("sandwich", () ->
+            new FoodOverflowSavoryItem(
+                    new Item.Properties().tab(FoodOverflowItemGroup.FOOD_OVERFLOW_GROUP)
+                            .food(new Food.Builder()
+                                    .nutrition(10)
+                                    .saturationMod(0.8f)
                                     .build())
             )
     );

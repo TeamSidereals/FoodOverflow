@@ -1,5 +1,6 @@
 {
   "itemGroup.foodoverflow" : "Food Overflow",
   "item.foodoverflow.caramel" : "Caramel",
-  "item.foodoverflow.lollipop" : "Lollipop"
+  "item.foodoverflow.lollipop" : "Lollipop",
+  "item.foodoverflow.sandwich" : "Sandwich"
 }

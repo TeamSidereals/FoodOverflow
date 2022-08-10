@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " s ",
+    "kkk",
+    " b "
+  ],
+  "key": {
+    "s": {
+      "item": "minecraft:cooked_beef"
+    },
+    "k": {
+      "item": "minecraft:kelp"
+    },
+    "b": {
+      "item": "minecraft:bread"
+    }
+  },
+  "result": {
+    "item": "foodoverflow:sandwich",
+    "count": 1
+  }
+}
