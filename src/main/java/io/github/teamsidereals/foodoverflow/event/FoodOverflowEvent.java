@@ -2,7 +2,7 @@ package io.github.teamsidereals.foodoverflow.event;
 
 import io.github.teamsidereals.foodoverflow.FoodOverflowMod;
 import io.github.teamsidereals.foodoverflow.item.food.bland.FoodOverflowBlandItem;
-import io.github.teamsidereals.foodoverflow.item.food.fruitandvegatable.FoodOverflowFruitAndVegetableItem;
+import io.github.teamsidereals.foodoverflow.item.food.healthy.FoodOverflowHealthyItem;
 import io.github.teamsidereals.foodoverflow.item.food.savory.FoodOverflowSavoryItem;
 import io.github.teamsidereals.foodoverflow.item.food.sweet.FoodOverflowSweetItem;
 import net.minecraft.entity.Entity;
@@ -39,7 +39,7 @@ public class FoodOverflowEvent {
             )
     );
 
-    private static final List<Item> additionFruitAndVegetable = new ArrayList<>(
+    private static final List<Item> additionHealthyFood = new ArrayList<>(
             Arrays.asList(
                     Items.SWEET_BERRIES, Items.APPLE, Items.BEETROOT,
                     Items.BEETROOT_SOUP, Items.CARROT, Items.MELON_SLICE,
@@ -93,8 +93,8 @@ public class FoodOverflowEvent {
                         || event.getItem().getItem() instanceof FoodOverflowSweetItem){
                     SugarRush(player);
                 }
-                if (additionFruitAndVegetable.contains(event.getItem().getItem())
-                        || event.getItem().getItem() instanceof FoodOverflowFruitAndVegetableItem){
+                if (additionHealthyFood.contains(event.getItem().getItem())
+                        || event.getItem().getItem() instanceof FoodOverflowHealthyItem){
                     Healthy(player);
                 }
                 if (additionBlandFood.contains(event.getItem().getItem())
