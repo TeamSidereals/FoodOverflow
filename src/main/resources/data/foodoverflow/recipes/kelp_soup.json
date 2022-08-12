@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " k ",
+    "ksk",
+    " b "
+  ],
+  "key": {
+    "k": {
+      "item": "minecraft:dried_kelp"
+    },
+    "s": {
+      "item": "minecraft:cooked_beef"
+    },
+    "b": {
+      "item": "minecraft:bowl"
+    }
+  },
+  "result": {
+    "item": "foodoverflow:kelp_soup",
+    "count": 1
+  }
+}

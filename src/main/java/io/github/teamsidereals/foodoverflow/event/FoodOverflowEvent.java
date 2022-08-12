@@ -7,8 +7,6 @@ import io.github.teamsidereals.foodoverflow.item.food.savory.FoodOverflowSavoryI
 import io.github.teamsidereals.foodoverflow.item.food.sweet.FoodOverflowSweetItem;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.Items;
 import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
@@ -25,31 +23,31 @@ import java.util.*;
 
 @Mod.EventBusSubscriber(modid = FoodOverflowMod.MODID)
 public class FoodOverflowEvent {
-    private static final List<Item> additionSavoryFood = new ArrayList<>(
+    private static final List<String> additionSavoryFood = new ArrayList<>(
             Arrays.asList(
-                    Items.COOKED_BEEF, Items.COOKED_COD, Items.COOKED_CHICKEN,
-                    Items.COOKED_MUTTON, Items.COOKED_RABBIT, Items.COOKED_PORKCHOP,
-                    Items.COOKED_SALMON, Items.RABBIT_STEW
+                    "minecraft:cooked_beef", "minecraft:cooked_cod", "minecraft:cooked_chicken",
+                    "minecraft:cooked_mutton", "minecraft:cooked_rabbit", "minecraft:cooked_porkchop",
+                    "minecraft:cooked_salmon", "minecraft:rabbit_stew"
             )
     );
 
-    private static final List<Item> additionSweetFood = new ArrayList<>(
+    private static final List<String> additionSweetFood = new ArrayList<>(
             Arrays.asList(
-                    Items.COOKIE, Items.PUMPKIN_PIE
+                    "minecraft:cookie", "minecraft:pumpkin_pie"
             )
     );
 
-    private static final List<Item> additionHealthyFood = new ArrayList<>(
+    private static final List<String> additionHealthyFood = new ArrayList<>(
             Arrays.asList(
-                    Items.SWEET_BERRIES, Items.APPLE, Items.BEETROOT,
-                    Items.BEETROOT_SOUP, Items.CARROT, Items.MELON_SLICE,
-                    Items.DRIED_KELP, Items.MUSHROOM_STEW
+                    "minecraft:sweet_berries", "minecraft:apple", "minecraft:beetroot",
+                    "minecraft:beetroot_soup", "minecraft:carrot", "minecraft:melon_slice",
+                    "minecraft:dried_kelp", "minecraft:mushroom_stew", "foodoverflow:kelp_soup"
             )
     );
 
-    private static final List<Item> additionBlandFood = new ArrayList<>(
+    private static final List<String> additionBlandFood = new ArrayList<>(
             Arrays.asList(
-                    Items.BREAD, Items.BAKED_POTATO, Items.POTATO
+                    "minecraft:bread", "minecraft:baked_potato", "foodoverflow:potato"
             )
     );
 
@@ -74,6 +72,7 @@ public class FoodOverflowEvent {
                     sugarRushTick.add(0);
                     healthyFoodCount.add(0);
                     blandFoodCount.add(0);
+                    System.out.println(playerList);
                 }
             }
         }
@@ -85,19 +84,19 @@ public class FoodOverflowEvent {
         if(!world.isClientSide && event.getEntity() instanceof PlayerEntity){
             PlayerEntity player = (PlayerEntity) event.getEntity();
             if (player.getUseItemRemainingTicks() == 1){
-                if (additionSavoryFood.contains(event.getItem().getItem())
+                if (additionSavoryFood.contains(event.getItem().getItem().getRegistryName().toString())
                         || event.getItem().getItem() instanceof FoodOverflowSavoryItem){
                     FullBelly(player);
                 }
-                if (additionSweetFood.contains(event.getItem().getItem())
+                if (additionSweetFood.contains(event.getItem().getItem().getRegistryName().toString())
                         || event.getItem().getItem() instanceof FoodOverflowSweetItem){
                     SugarRush(player);
                 }
-                if (additionHealthyFood.contains(event.getItem().getItem())
+                if (additionHealthyFood.contains(event.getItem().getItem().getRegistryName().toString())
                         || event.getItem().getItem() instanceof FoodOverflowHealthyItem){
                     Healthy(player);
                 }
-                if (additionBlandFood.contains(event.getItem().getItem())
+                if (additionBlandFood.contains(event.getItem().getItem().getRegistryName().toString())
                         || event.getItem().getItem() instanceof FoodOverflowBlandItem){
                     Neutralize(player);
                 }

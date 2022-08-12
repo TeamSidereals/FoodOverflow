@@ -43,4 +43,14 @@ public class FoodOverflowItemsRegister {
                                     .build())
             )
     );
+
+    public static final RegistryObject<Item> KELP_SOUP = ITEMS.register("kelp_soup", () ->
+            new FoodOverflowSavoryItem(
+                    new Item.Properties().tab(FoodOverflowItemGroup.FOOD_OVERFLOW_GROUP)
+                            .food(new Food.Builder()
+                                    .nutrition(9)
+                                    .saturationMod(0.6f)
+                                    .build())
+            )
+    );
 }
