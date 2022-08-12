@@ -13,7 +13,34 @@ import net.minecraft.item.Item;
 
  */
 public class FoodOverflowFoodItem extends Item {
-    public FoodOverflowFoodItem(Properties p_i48487_1_) {
-        super(p_i48487_1_);
+    public FoodOverflowFoodItem(Properties properties) {
+        super(properties);
+        this.isSweet = false;
+        this.isSavory = false;
+        this.isHealthy = false;
+        this.isBland = false;
+
+    }
+
+    public boolean isSavory;
+    public boolean isSweet;
+    public boolean isHealthy;
+    public boolean isBland;
+
+    public FoodOverflowFoodItem alsoSavory(){
+        this.isSavory = true;
+        return this;
+    }
+    public FoodOverflowFoodItem alsoSweet(){
+        this.isSweet = true;
+        return this;
+    }
+    public FoodOverflowFoodItem alsoHealthy(){
+        this.isHealthy = true;
+        return this;
+    }
+    public FoodOverflowFoodItem alsoBland(){
+        this.isBland = true;
+        return this;
     }
 }

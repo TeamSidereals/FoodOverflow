@@ -1,6 +1,7 @@
 package io.github.teamsidereals.foodoverflow.event;
 
 import io.github.teamsidereals.foodoverflow.FoodOverflowMod;
+import io.github.teamsidereals.foodoverflow.item.food.FoodOverflowFoodItem;
 import io.github.teamsidereals.foodoverflow.item.food.bland.FoodOverflowBlandItem;
 import io.github.teamsidereals.foodoverflow.item.food.healthy.FoodOverflowHealthyItem;
 import io.github.teamsidereals.foodoverflow.item.food.savory.FoodOverflowSavoryItem;
@@ -41,7 +42,7 @@ public class FoodOverflowEvent {
             Arrays.asList(
                     "minecraft:sweet_berries", "minecraft:apple", "minecraft:beetroot",
                     "minecraft:beetroot_soup", "minecraft:carrot", "minecraft:melon_slice",
-                    "minecraft:dried_kelp", "minecraft:mushroom_stew", "foodoverflow:kelp_soup"
+                    "minecraft:dried_kelp", "minecraft:mushroom_stew"
             )
     );
 
@@ -85,19 +86,19 @@ public class FoodOverflowEvent {
             PlayerEntity player = (PlayerEntity) event.getEntity();
             if (player.getUseItemRemainingTicks() == 1){
                 if (additionSavoryFood.contains(event.getItem().getItem().getRegistryName().toString())
-                        || event.getItem().getItem() instanceof FoodOverflowSavoryItem){
+                        || ((FoodOverflowFoodItem) event.getItem().getItem()).isSavory){
                     FullBelly(player);
                 }
                 if (additionSweetFood.contains(event.getItem().getItem().getRegistryName().toString())
-                        || event.getItem().getItem() instanceof FoodOverflowSweetItem){
+                        || ((FoodOverflowFoodItem) event.getItem().getItem()).isSweet){
                     SugarRush(player);
                 }
                 if (additionHealthyFood.contains(event.getItem().getItem().getRegistryName().toString())
-                        || event.getItem().getItem() instanceof FoodOverflowHealthyItem){
+                        || ((FoodOverflowFoodItem) event.getItem().getItem()).isHealthy){
                     Healthy(player);
                 }
                 if (additionBlandFood.contains(event.getItem().getItem().getRegistryName().toString())
-                        || event.getItem().getItem() instanceof FoodOverflowBlandItem){
+                        || ((FoodOverflowFoodItem) event.getItem().getItem()).isBland){
                     Neutralize(player);
                 }
             }
