@@ -1,6 +1,14 @@
 package io.github.teamsidereals.foodoverflow.item.food;
 
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraft.world.World;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 /*  Food saturation and hunger/nutrition formula
 
@@ -42,5 +50,34 @@ public class FoodOverflowFoodItem extends Item {
     public FoodOverflowFoodItem alsoBland(){
         this.isBland = true;
         return this;
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, @Nullable World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
+        super.appendHoverText(stack, world, tooltip, flag);
+        if (((FoodOverflowFoodItem) stack.getItem()).isSavory){
+            tooltip.add(new TranslationTextComponent(
+                    "\u00A7eSavory\u00A7r"
+                )
+            );
+        }
+        if (((FoodOverflowFoodItem) stack.getItem()).isSweet){
+            tooltip.add(new TranslationTextComponent(
+                            "\u00A7cSweet\u00A7r"
+                    )
+            );
+        }
+        if (((FoodOverflowFoodItem) stack.getItem()).isHealthy){
+            tooltip.add(new TranslationTextComponent(
+                            "\u00A7aHealthy\u00A7r"
+                    )
+            );
+        }
+        if (((FoodOverflowFoodItem) stack.getItem()).isBland){
+            tooltip.add(new TranslationTextComponent(
+                            "\u00A7fBland\u00A7r"
+                    )
+            );
+        }
     }
 }
