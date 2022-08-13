@@ -87,47 +87,47 @@ public class FoodOverflowEvent {
             if (player.getUseItemRemainingTicks() == 1){
                 if (additionSavoryFood.contains(event.getItem().getItem().getRegistryName().toString())
                         || ((FoodOverflowFoodItem) event.getItem().getItem()).isSavory){
-                    FullBelly(player);
+                    FullBelly(player, (FoodOverflowFoodItem) event.getItem().getItem());
                 }
                 if (additionSweetFood.contains(event.getItem().getItem().getRegistryName().toString())
                         || ((FoodOverflowFoodItem) event.getItem().getItem()).isSweet){
-                    SugarRush(player);
+                    SugarRush(player, (FoodOverflowFoodItem) event.getItem().getItem());
                 }
                 if (additionHealthyFood.contains(event.getItem().getItem().getRegistryName().toString())
                         || ((FoodOverflowFoodItem) event.getItem().getItem()).isHealthy){
-                    Healthy(player);
+                    Healthy(player, (FoodOverflowFoodItem) event.getItem().getItem());
                 }
                 if (additionBlandFood.contains(event.getItem().getItem().getRegistryName().toString())
                         || ((FoodOverflowFoodItem) event.getItem().getItem()).isBland){
-                    Neutralize(player);
+                    Neutralize(player, (FoodOverflowFoodItem) event.getItem().getItem());
                 }
             }
         }
     }
 
-    public static void FullBelly(PlayerEntity player){
+    public static void FullBelly(PlayerEntity player, FoodOverflowFoodItem item){
         savoryFoodCount.set(
                 playerList.indexOf(player.getScoreboardName()),
                 savoryFoodCount.get(playerList.indexOf(player.getScoreboardName())) + 1
         );
         if (savoryFoodCount.get(playerList.indexOf(player.getScoreboardName())) == 5){
             player.displayClientMessage(new TranslationTextComponent("Your stomach is full, you feel stronger").withStyle(TextFormatting.BOLD).withStyle(TextFormatting.RED), true);
-            player.addEffect(new EffectInstance(Effects.DAMAGE_RESISTANCE, 200));
-            player.addEffect(new EffectInstance(Effects.ABSORPTION, 200));
-            player.addEffect(new EffectInstance(Effects.MOVEMENT_SLOWDOWN, 200));
+            player.addEffect(new EffectInstance(Effects.DAMAGE_RESISTANCE, 200 + item.DamageResTimeModify, item.DamageResLevelModify));
+            player.addEffect(new EffectInstance(Effects.ABSORPTION, 200 + item.AbsorptionTimeModify, item.AbsorptionLevelModify));
+            player.addEffect(new EffectInstance(Effects.MOVEMENT_SLOWDOWN, 200 + item.SpeedDownTimeModify, item.SpeedDownLevelModify));
             savoryFoodCount.set(playerList.indexOf(player.getScoreboardName()), 0);
         }
     }
 
-    public static void SugarRush(PlayerEntity player){
+    public static void SugarRush(PlayerEntity player, FoodOverflowFoodItem item){
         sweetFoodCount.set(
                 playerList.indexOf(player.getScoreboardName()),
                 sweetFoodCount.get(playerList.indexOf(player.getScoreboardName())) + 1
         );
         if (sweetFoodCount.get(playerList.indexOf(player.getScoreboardName())) == 5){
             player.displayClientMessage(new TranslationTextComponent("Your sugar level is high, you feel full of energy").withStyle(TextFormatting.BOLD).withStyle(TextFormatting.YELLOW), true);
-            player.addEffect(new EffectInstance(Effects.DIG_SPEED, 200));
-            player.addEffect(new EffectInstance(Effects.MOVEMENT_SPEED, 200));
+            player.addEffect(new EffectInstance(Effects.DIG_SPEED, 200 + item.HasteTimeModify, item.HasteLevelModify));
+            player.addEffect(new EffectInstance(Effects.MOVEMENT_SPEED, 200 + item.SpeedUpTimeModify, item.SpeedUpLevelModify));
             sweetFoodCount.set(playerList.indexOf(player.getScoreboardName()), 0);
             sugarRushTick.set(playerList.indexOf(player.getScoreboardName()), player.tickCount);
         }
@@ -145,20 +145,20 @@ public class FoodOverflowEvent {
         }
     }
 
-    public static void Healthy(PlayerEntity player){
+    public static void Healthy(PlayerEntity player, FoodOverflowFoodItem item){
         healthyFoodCount.set(
                 playerList.indexOf(player.getScoreboardName()),
                 healthyFoodCount.get(playerList.indexOf(player.getScoreboardName())) + 1
         );
         if (healthyFoodCount.get(playerList.indexOf(player.getScoreboardName())) == 5){
             player.displayClientMessage(new TranslationTextComponent("Your body feel pleased from healthy food").withStyle(TextFormatting.BOLD).withStyle(TextFormatting.DARK_GREEN), true);
-            player.addEffect(new EffectInstance(Effects.REGENERATION, 100));
-            player.addEffect(new EffectInstance(Effects.NIGHT_VISION, 100));
+            player.addEffect(new EffectInstance(Effects.REGENERATION, 100 + item.RegenerationTimeModify, item.RegenerationLevelModify));
+            player.addEffect(new EffectInstance(Effects.NIGHT_VISION, 100 + item.NightVisionTimeModify, item.NightVisionLevelModify));
             healthyFoodCount.set(playerList.indexOf(player.getScoreboardName()), 0);
         }
     }
 
-    public static void Neutralize(PlayerEntity player){
+    public static void Neutralize(PlayerEntity player, FoodOverflowFoodItem item){
         blandFoodCount.set(
                 playerList.indexOf(player.getScoreboardName()),
                 blandFoodCount.get(playerList.indexOf(player.getScoreboardName())) + 1

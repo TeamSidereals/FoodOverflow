@@ -2,7 +2,6 @@ package io.github.teamsidereals.foodoverflow.registry;
 
 import io.github.teamsidereals.foodoverflow.FoodOverflowMod;
 import io.github.teamsidereals.foodoverflow.item.FoodOverflowItemGroup;
-import io.github.teamsidereals.foodoverflow.item.food.FoodOverflowFoodItem;
 import io.github.teamsidereals.foodoverflow.item.food.savory.FoodOverflowSavoryItem;
 import io.github.teamsidereals.foodoverflow.item.food.sweet.FoodOverflowSweetItem;
 import net.minecraft.item.Food;
