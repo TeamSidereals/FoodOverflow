@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "minecraft:sugar"
+  },
+  "result": "foodoverflow:caramel",
+  "experience": 0.01,
+  "cookingtime": 100
+}

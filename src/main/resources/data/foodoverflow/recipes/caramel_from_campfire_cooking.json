@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "ingredient": {
+    "item": "minecraft:sugar"
+  },
+  "result": "foodoverflow:caramel",
+  "experience": 0.01,
+  "cookingtime": 300
+}
