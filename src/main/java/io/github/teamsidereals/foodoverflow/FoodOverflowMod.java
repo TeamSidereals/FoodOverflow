@@ -1,7 +1,9 @@
 package io.github.teamsidereals.foodoverflow;
 
-import io.github.teamsidereals.foodoverflow.registry.FoodOverflowItemsRegister;
+import io.github.teamsidereals.foodoverflow.registry.*;
+import io.github.teamsidereals.foodoverflow.screen.AgingChamberScreen;
 import net.minecraft.block.Block;
+import net.minecraft.client.gui.ScreenManager;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -34,6 +36,10 @@ public class FoodOverflowMod
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
         FoodOverflowItemsRegister.init(eventBus);
+        FoodOverflowBlocksRegister.init(eventBus);
+        FoodOverflowTileEntitiesRegister.init(eventBus);
+        FoodOverflowContainersRegister.init(eventBus);
+        FoodOverflowRecipeTypesRegister.init(eventBus);
     }
 
     private void setup(final FMLCommonSetupEvent event)
@@ -41,6 +47,10 @@ public class FoodOverflowMod
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
+        event.enqueueWork(() -> {
+            ScreenManager.register(FoodOverflowContainersRegister.AGING_CHAMBER_CONTAINER.get(),
+                    AgingChamberScreen::new);
+        });
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)
