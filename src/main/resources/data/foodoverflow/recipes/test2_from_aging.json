@@ -1,0 +1,10 @@
+{
+  "type": "foodoverflow:aging",
+  "input": {
+    "item": "minecraft:dirt"
+  },
+  "output": {
+    "item": "minecraft:stick"
+  },
+  "time" : 20
+}
