@@ -20,7 +20,7 @@ public class FoodOverflowContainersRegister {
     }
 
     public static final RegistryObject<ContainerType<AgingChamberContainer>> AGING_CHAMBER_CONTAINER
-            = CONTAINERS.register("lightning_channeler_container",
+            = CONTAINERS.register("aging_chamber_container",
             () -> IForgeContainerType.create(((windowId, inv, data) -> {
                 BlockPos pos = data.readBlockPos();
                 World world = inv.player.level;
