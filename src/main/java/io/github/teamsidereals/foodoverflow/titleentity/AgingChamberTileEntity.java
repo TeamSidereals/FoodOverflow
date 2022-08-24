@@ -4,6 +4,8 @@ import io.github.teamsidereals.foodoverflow.data.recipe.AgingChamberRecipe;
 import io.github.teamsidereals.foodoverflow.registry.FoodOverflowRecipeTypesRegister;
 import io.github.teamsidereals.foodoverflow.registry.FoodOverflowTileEntitiesRegister;
 import net.minecraft.block.BlockState;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.IRecipe;

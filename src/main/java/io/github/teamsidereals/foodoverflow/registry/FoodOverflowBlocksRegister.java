@@ -31,5 +31,7 @@ public class FoodOverflowBlocksRegister {
     }
 
     public static final RegistryObject<Block> AGING_CHAMBER = registerBlock("aging_chamber",
-            () -> new AgingChamberBlock(AbstractBlock.Properties.of(Material.METAL)));
+            () -> new AgingChamberBlock(AbstractBlock.Properties.of(Material.METAL)
+                    .strength(2.0F, 6.0F)
+            ));
 }

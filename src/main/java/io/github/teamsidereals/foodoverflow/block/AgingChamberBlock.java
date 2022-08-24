@@ -3,18 +3,21 @@ package io.github.teamsidereals.foodoverflow.block;
 import io.github.teamsidereals.foodoverflow.container.AgingChamberContainer;
 import io.github.teamsidereals.foodoverflow.registry.FoodOverflowTileEntitiesRegister;
 import io.github.teamsidereals.foodoverflow.titleentity.AgingChamberTileEntity;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.INamedContainerProvider;
+import net.minecraft.tileentity.AbstractFurnaceTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
+import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.IBlockReader;
@@ -23,7 +26,7 @@ import net.minecraftforge.fml.network.NetworkHooks;
 
 import javax.annotation.Nullable;
 
-public class AgingChamberBlock extends Block {
+public class AgingChamberBlock extends FoodOverflowBlock {
     public AgingChamberBlock(Properties p_i48440_1_) {
         super(p_i48440_1_);
     }
