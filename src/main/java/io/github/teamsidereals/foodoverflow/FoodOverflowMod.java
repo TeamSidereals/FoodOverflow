@@ -40,6 +40,7 @@ public class FoodOverflowMod
         FoodOverflowTileEntitiesRegister.init(eventBus);
         FoodOverflowContainersRegister.init(eventBus);
         FoodOverflowRecipeTypesRegister.init(eventBus);
+        FoodOverflowEffectsRegister.init(eventBus);
     }
 
     private void setup(final FMLCommonSetupEvent event)

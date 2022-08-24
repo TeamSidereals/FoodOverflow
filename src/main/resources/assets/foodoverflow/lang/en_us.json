@@ -5,5 +5,6 @@
   "item.foodoverflow.sandwich" : "Sandwich",
   "item.foodoverflow.kelp_soup" : "Kelp Soup",
   "block.foodoverflow.aging_chamber" : "Aging Chamber",
-  "screen.foodoverflow.aging_chamber" : "Aging Chamber"
+  "screen.foodoverflow.aging_chamber" : "Aging Chamber",
+  "effect.foodoverflow.tasty": "Tasty"
 }
