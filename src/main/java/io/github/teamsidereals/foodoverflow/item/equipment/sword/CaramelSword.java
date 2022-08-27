@@ -1,9 +1,6 @@
 package io.github.teamsidereals.foodoverflow.item.equipment.sword;
 
-import io.github.teamsidereals.foodoverflow.effect.FoodOverflowEffect;
-import io.github.teamsidereals.foodoverflow.item.food.FoodOverflowFoodItem;
 import io.github.teamsidereals.foodoverflow.registry.FoodOverflowEffectsRegister;
-import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.IItemTier;
@@ -35,7 +32,7 @@ public class CaramelSword extends FoodOverflowSword{
     public boolean hurtEnemy(ItemStack stack, LivingEntity entity, LivingEntity user) {
         if (!user.level.isClientSide){
             Random roll = new Random();
-            if (roll.nextFloat() < 0.25F){
+            if (roll.nextFloat() < 0.20F){
                 entity.addEffect(new EffectInstance(FoodOverflowEffectsRegister.TASTY.get(), 100));
             }
         }

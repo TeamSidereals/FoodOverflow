@@ -1,13 +1,7 @@
 package io.github.teamsidereals.foodoverflow.event;
 
 import io.github.teamsidereals.foodoverflow.FoodOverflowMod;
-import io.github.teamsidereals.foodoverflow.effect.FoodOverflowEffect;
-import io.github.teamsidereals.foodoverflow.effect.TastyEffect;
 import io.github.teamsidereals.foodoverflow.item.food.FoodOverflowFoodItem;
-import io.github.teamsidereals.foodoverflow.item.food.bland.FoodOverflowBlandItem;
-import io.github.teamsidereals.foodoverflow.item.food.healthy.FoodOverflowHealthyItem;
-import io.github.teamsidereals.foodoverflow.item.food.savory.FoodOverflowSavoryItem;
-import io.github.teamsidereals.foodoverflow.item.food.sweet.FoodOverflowSweetItem;
 import io.github.teamsidereals.foodoverflow.registry.FoodOverflowEffectsRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
