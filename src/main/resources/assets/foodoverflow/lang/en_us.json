@@ -1,6 +1,8 @@
 {
   "itemGroup.foodoverflow" : "Food Overflow",
   "item.foodoverflow.caramel" : "Caramel",
+  "item.foodoverflow.caramel_bar" : "Caramel Bar",
+  "item.foodoverflow.caramel_sword" : "Caramel Sword",
   "item.foodoverflow.lollipop" : "Lollipop",
   "item.foodoverflow.sandwich" : "Sandwich",
   "item.foodoverflow.kelp_soup" : "Kelp Soup",

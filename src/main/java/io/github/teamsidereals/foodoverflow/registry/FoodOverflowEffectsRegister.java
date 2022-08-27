@@ -21,7 +21,7 @@ public class FoodOverflowEffectsRegister {
             new TastyEffect(EffectType.HARMFUL, 16742291)
                     .addAttributeModifier(Attributes.MOVEMENT_SPEED,
                             "7107DE5E-7CE8-4030-940E-514C1F160890",
-                            (double)-0.05F,
+                            -0.05D,
                             AttributeModifier.Operation.MULTIPLY_TOTAL)
     );
 }
