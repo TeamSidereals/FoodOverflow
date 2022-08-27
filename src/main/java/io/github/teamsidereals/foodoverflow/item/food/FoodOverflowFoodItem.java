@@ -160,11 +160,11 @@ public class FoodOverflowFoodItem extends Item {
                     )
             );
         }
-        tooltip.add(new TranslationTextComponent(
-                        ""
-                )
-        );
         if (((FoodOverflowFoodItem) stack.getItem()).isEffectModified){
+            tooltip.add(new TranslationTextComponent(
+                            ""
+                    )
+            );
             tooltip.add(new TranslationTextComponent(
                             "\u00A7b-Eating Effect Modify-\u00A7r"
                     )

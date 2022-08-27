@@ -4,6 +4,7 @@ import io.github.teamsidereals.foodoverflow.FoodOverflowMod;
 import io.github.teamsidereals.foodoverflow.item.FoodOverflowItemGroup;
 import io.github.teamsidereals.foodoverflow.item.equipment.FoodOverflowItemTier;
 import io.github.teamsidereals.foodoverflow.item.equipment.sword.CaramelSword;
+import io.github.teamsidereals.foodoverflow.item.food.FoodOverflowFoodItem;
 import io.github.teamsidereals.foodoverflow.item.food.savory.FoodOverflowSavoryItem;
 import io.github.teamsidereals.foodoverflow.item.food.sweet.FoodOverflowSweetItem;
 import net.minecraft.item.Food;
@@ -48,6 +49,12 @@ public class FoodOverflowItemsRegister {
                                     .saturationMod(1f)
                                     .fast()
                                     .build())
+            )
+    );
+
+    public static final RegistryObject<Item> COOKING_OIL = ITEMS.register("cooking_oil", () ->
+            new FoodOverflowFoodItem(
+                    new Item.Properties().tab(FoodOverflowItemGroup.FOOD_OVERFLOW_GROUP)
             )
     );
 
