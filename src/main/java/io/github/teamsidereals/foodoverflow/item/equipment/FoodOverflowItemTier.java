@@ -11,7 +11,7 @@ import java.util.function.Supplier;
 
 public enum FoodOverflowItemTier implements IItemTier {
     //(harvestLevel, maxUse, efficiency, attackDamage, enchantability, repairMaterial)
-    CARAMEL(1, 100, 4.5F, 1.5F, 8, ()
+    CARAMEL(1, 110, 4.5F, 1.5F, 8, ()
             -> Ingredient.of(FoodOverflowItemsRegister.CARAMEL_BAR.get()));
 
     private final int harvestLevel;

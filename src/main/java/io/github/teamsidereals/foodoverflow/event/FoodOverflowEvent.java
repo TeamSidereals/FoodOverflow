@@ -219,7 +219,7 @@ public class FoodOverflowEvent {
                 && event.getSource().getEntity() instanceof LivingEntity){
                     LivingEntity attacker = (LivingEntity) event.getSource().getEntity();
                     Random roll = new Random();
-                    if (roll.nextFloat() < 0.1F){
+                    if (roll.nextFloat() < 0.2F){
                         attacker.heal(2.0F);
                     }
                 }
