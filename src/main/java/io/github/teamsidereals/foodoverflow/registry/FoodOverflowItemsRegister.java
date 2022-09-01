@@ -3,6 +3,7 @@ package io.github.teamsidereals.foodoverflow.registry;
 import io.github.teamsidereals.foodoverflow.FoodOverflowMod;
 import io.github.teamsidereals.foodoverflow.item.FoodOverflowItemGroup;
 import io.github.teamsidereals.foodoverflow.item.equipment.FoodOverflowItemTier;
+import io.github.teamsidereals.foodoverflow.item.equipment.pickaxe.CaramelPickaxe;
 import io.github.teamsidereals.foodoverflow.item.equipment.sword.CaramelSword;
 import io.github.teamsidereals.foodoverflow.item.food.FoodOverflowFoodItem;
 import io.github.teamsidereals.foodoverflow.item.food.savory.FoodOverflowSavoryItem;
@@ -37,6 +38,12 @@ public class FoodOverflowItemsRegister {
 
     public static final RegistryObject<Item> CARAMEL_SWORD = ITEMS.register("caramel_sword", () ->
             new CaramelSword(FoodOverflowItemTier.CARAMEL, 3, -2.2F,
+                    new Item.Properties().tab(FoodOverflowItemGroup.FOOD_OVERFLOW_GROUP)
+            )
+    );
+
+    public static final RegistryObject<Item> CARAMEL_PICKAXE = ITEMS.register("caramel_pickaxe", () ->
+            new CaramelPickaxe(FoodOverflowItemTier.CARAMEL, 1, -2.6F,
                     new Item.Properties().tab(FoodOverflowItemGroup.FOOD_OVERFLOW_GROUP)
             )
     );
