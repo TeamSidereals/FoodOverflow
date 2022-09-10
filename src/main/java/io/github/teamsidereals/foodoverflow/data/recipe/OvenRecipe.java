@@ -78,6 +78,7 @@ public class OvenRecipe implements IOvenRecipe{
         return output.copy();
     }
 
+    @Nullable
     public ItemStack getAdditionOutput(){
         return additionOutput.copy();
     }

@@ -1,0 +1,10 @@
+{
+  "type": "foodoverflow:aging",
+  "input": {
+    "item": "minecraft:milk_bucket"
+  },
+  "output": {
+    "item": "foodoverflow:cheese"
+  },
+  "time" : 20
+}

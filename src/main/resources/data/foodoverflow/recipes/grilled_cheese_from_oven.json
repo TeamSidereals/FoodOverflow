@@ -1,0 +1,21 @@
+{
+  "type": "foodoverflow:oven",
+  "inputs": [
+    {
+      "item": "minecraft:bread"
+    },
+    {
+      "item": "foodoverflow:cheese_slice"
+    },
+    {
+      "item": "foodoverflow:cooking_oil"
+    }
+  ],
+  "output": {
+    "item": "foodoverflow:grilled_cheese"
+  },
+  "addition": {
+    "item": "minecraft:air"
+  },
+  "time" : 20
+}

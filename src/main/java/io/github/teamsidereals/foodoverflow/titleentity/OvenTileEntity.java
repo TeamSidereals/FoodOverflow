@@ -106,7 +106,9 @@ public class OvenTileEntity extends TileEntity implements ITickableTileEntity {
             itemHandler.extractItem(i,1,false);
         }
         itemHandler.insertItem(6, output, false);
-        itemHandler.insertItem(7, additionOutput, false);
+        if (additionOutput.getItem() != Items.AIR){
+            itemHandler.insertItem(7, additionOutput, false);
+        }
     }
 
     @Override

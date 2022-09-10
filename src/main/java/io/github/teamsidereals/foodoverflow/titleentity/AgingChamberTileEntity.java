@@ -1,6 +1,7 @@
 package io.github.teamsidereals.foodoverflow.titleentity;
 
 import io.github.teamsidereals.foodoverflow.data.recipe.AgingChamberRecipe;
+import io.github.teamsidereals.foodoverflow.registry.FoodOverflowItemsRegister;
 import io.github.teamsidereals.foodoverflow.registry.FoodOverflowRecipeTypesRegister;
 import io.github.teamsidereals.foodoverflow.registry.FoodOverflowTileEntitiesRegister;
 import net.minecraft.block.BlockState;
@@ -111,6 +112,9 @@ public class AgingChamberTileEntity extends TileEntity implements ITickableTileE
     private void finishAging(ItemStack output, int slot) {
         itemHandler.extractItem(slot, 1, false);
         itemHandler.insertItem(slot + 1, output, false);
+        if (output.getItem() == FoodOverflowItemsRegister.CHEESE.get()){
+            itemHandler.insertItem(slot, Items.BUCKET.getDefaultInstance(), false);
+        }
     }
 
     @Override

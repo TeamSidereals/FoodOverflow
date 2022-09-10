@@ -6,6 +6,7 @@ import io.github.teamsidereals.foodoverflow.item.equipment.FoodOverflowItemTier;
 import io.github.teamsidereals.foodoverflow.item.equipment.pickaxe.CaramelPickaxe;
 import io.github.teamsidereals.foodoverflow.item.equipment.sword.CaramelSword;
 import io.github.teamsidereals.foodoverflow.item.food.FoodOverflowFoodItem;
+import io.github.teamsidereals.foodoverflow.item.food.bland.FoodOverflowBlandItem;
 import io.github.teamsidereals.foodoverflow.item.food.savory.FoodOverflowSavoryItem;
 import io.github.teamsidereals.foodoverflow.item.food.sweet.FoodOverflowSweetItem;
 import net.minecraft.item.Food;
@@ -52,11 +53,41 @@ public class FoodOverflowItemsRegister {
             new FoodOverflowSweetItem(
                     new Item.Properties().tab(FoodOverflowItemGroup.FOOD_OVERFLOW_GROUP)
                             .food(new Food.Builder()
+                                    .nutrition(2)
+                                    .saturationMod(1f)
+                                    .fast()
+                                    .build())
+            )
+    );
+
+    public static final RegistryObject<Item> CHEESE = ITEMS.register("cheese", () ->
+            new FoodOverflowBlandItem(
+                    new Item.Properties().tab(FoodOverflowItemGroup.FOOD_OVERFLOW_GROUP)
+            ).alsoSavory()
+    );
+
+    public static final RegistryObject<Item> CHEESE_SLICE = ITEMS.register("cheese_slice", () ->
+            new FoodOverflowBlandItem(
+                    new Item.Properties().tab(FoodOverflowItemGroup.FOOD_OVERFLOW_GROUP)
+                            .food(new Food.Builder()
                                     .nutrition(1)
                                     .saturationMod(1f)
                                     .fast()
                                     .build())
             )
+                    .alsoSavory()
+                    .modifyDamageRes(-100,0)
+                    .modifyAbsorption(-100,0)
+    );
+
+    public static final RegistryObject<Item> GRILLED_CHEESE = ITEMS.register("grilled_cheese", () ->
+            new FoodOverflowSavoryItem(
+                    new Item.Properties().tab(FoodOverflowItemGroup.FOOD_OVERFLOW_GROUP)
+                            .food(new Food.Builder()
+                                    .nutrition(6)
+                                    .saturationMod(1f)
+                                    .build())
+            ).alsoBland()
     );
 
     public static final RegistryObject<Item> COOKING_OIL = ITEMS.register("cooking_oil", () ->
