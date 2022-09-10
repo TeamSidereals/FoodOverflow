@@ -73,7 +73,6 @@ public class FoodOverflowEvent {
                     sugarRushTick.add(0);
                     healthyFoodCount.add(0);
                     blandFoodCount.add(0);
-                    System.out.println(playerList);
                 }
             }
         }

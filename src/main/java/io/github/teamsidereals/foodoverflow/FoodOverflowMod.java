@@ -2,6 +2,7 @@ package io.github.teamsidereals.foodoverflow;
 
 import io.github.teamsidereals.foodoverflow.registry.*;
 import io.github.teamsidereals.foodoverflow.screen.AgingChamberScreen;
+import io.github.teamsidereals.foodoverflow.screen.OvenScreen;
 import net.minecraft.block.Block;
 import net.minecraft.client.gui.ScreenManager;
 import net.minecraftforge.common.MinecraftForge;
@@ -51,6 +52,8 @@ public class FoodOverflowMod
         event.enqueueWork(() -> {
             ScreenManager.register(FoodOverflowContainersRegister.AGING_CHAMBER_CONTAINER.get(),
                     AgingChamberScreen::new);
+            ScreenManager.register(FoodOverflowContainersRegister.OVEN_CONTAINER.get(),
+                    OvenScreen::new);
         });
     }
 

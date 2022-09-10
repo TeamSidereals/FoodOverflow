@@ -2,15 +2,15 @@ package io.github.teamsidereals.foodoverflow.container;
 
 import io.github.teamsidereals.foodoverflow.registry.FoodOverflowBlocksRegister;
 import io.github.teamsidereals.foodoverflow.registry.FoodOverflowContainersRegister;
-import io.github.teamsidereals.foodoverflow.titleentity.AgingChamberTileEntity;
-import io.github.teamsidereals.foodoverflow.utils.FunctionalIntReferenceHolder;
+import io.github.teamsidereals.foodoverflow.titleentity.OvenTileEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.IIntArray;
 import net.minecraft.util.IWorldPosCallable;
-import net.minecraft.util.IntReferenceHolder;
+import net.minecraft.util.IntArray;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
@@ -20,57 +20,42 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 import net.minecraftforge.items.wrapper.InvWrapper;
 
-public class AgingChamberContainer extends Container {
-    private final AgingChamberTileEntity tileEntity;
+public class OvenContainer extends Container {
+
+    private final OvenTileEntity tileEntity;
     private final PlayerEntity playerEntity;
     private final IItemHandler playerInventory;
-    public IntReferenceHolder[] agingTime = new IntReferenceHolder[4];
-    public IntReferenceHolder[] agingProgress = new IntReferenceHolder[4];
+    public IIntArray ovenData = new IntArray(2);
 
-    public AgingChamberContainer(int windowId, World world, BlockPos pos,
-                                       PlayerInventory playerInventory, PlayerEntity player) {
-        super(FoodOverflowContainersRegister.AGING_CHAMBER_CONTAINER.get(), windowId);
-        this.tileEntity = (AgingChamberTileEntity) world.getBlockEntity(pos);
+    public OvenContainer(int windowId, World world, BlockPos pos,
+                                 PlayerInventory playerInventory, PlayerEntity player) {
+        super(FoodOverflowContainersRegister.OVEN_CONTAINER.get(), windowId);
+        this.tileEntity = (OvenTileEntity) world.getBlockEntity(pos);
         playerEntity = player;
         this.playerInventory = new InvWrapper(playerInventory);
-        layoutPlayerInventorySlots(8, 92);
+        layoutPlayerInventorySlots(8, 84);
 
         if(tileEntity != null) {
             tileEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
-                addSlot(new SlotItemHandler(h, 0, 26, 18));
-                addSlot(new FoodOverflowResultSlot(h, 1, 26, 62));
-                addSlot(new SlotItemHandler(h, 2, 62, 18));
-                addSlot(new FoodOverflowResultSlot(h, 3, 62, 62));
-                addSlot(new SlotItemHandler(h, 4, 98, 18));
-                addSlot(new FoodOverflowResultSlot(h, 5, 98, 62));
-                addSlot(new SlotItemHandler(h, 6, 134, 18));
-                addSlot(new FoodOverflowResultSlot(h, 7, 134, 62));
+                addSlot(new SlotItemHandler(h, 0, 22, 24));
+                addSlot(new SlotItemHandler(h, 1, 40, 24));
+                addSlot(new SlotItemHandler(h, 2, 58, 24));
+                addSlot(new SlotItemHandler(h, 3, 22, 42));
+                addSlot(new SlotItemHandler(h, 4, 40, 42));
+                addSlot(new SlotItemHandler(h, 5, 58, 42));
+                addSlot(new FoodOverflowResultSlot(h, 6, 119, 33));
+                addSlot(new FoodOverflowResultSlot(h, 7, 144, 33));
 
             });
-            this.addDataSlot(agingTime[0] = new FunctionalIntReferenceHolder(() -> this.tileEntity.agingTime[0],
-                    value -> this.tileEntity.agingTime[0] = value));
-            this.addDataSlot(agingTime[1] = new FunctionalIntReferenceHolder(() -> this.tileEntity.agingTime[1],
-                    value -> this.tileEntity.agingTime[1] = value));
-            this.addDataSlot(agingTime[2] = new FunctionalIntReferenceHolder(() -> this.tileEntity.agingTime[2],
-                    value -> this.tileEntity.agingTime[2] = value));
-            this.addDataSlot(agingTime[3] = new FunctionalIntReferenceHolder(() -> this.tileEntity.agingTime[3],
-                    value -> this.tileEntity.agingTime[3] = value));
 
-            this.addDataSlot(agingProgress[0] = new FunctionalIntReferenceHolder(() -> this.tileEntity.agingProgress[0],
-                    value -> this.tileEntity.agingProgress[0] = value));
-            this.addDataSlot(agingProgress[1] = new FunctionalIntReferenceHolder(() -> this.tileEntity.agingProgress[1],
-                    value -> this.tileEntity.agingProgress[1] = value));
-            this.addDataSlot(agingProgress[2] = new FunctionalIntReferenceHolder(() -> this.tileEntity.agingProgress[2],
-                    value -> this.tileEntity.agingProgress[2] = value));
-            this.addDataSlot(agingProgress[3] = new FunctionalIntReferenceHolder(() -> this.tileEntity.agingProgress[3],
-                    value -> this.tileEntity.agingProgress[3] = value));
+            this.addDataSlots(ovenData = this.tileEntity.ovenData);
         }
     }
 
     @OnlyIn(Dist.CLIENT)
-    public int getAgingProgress(int slot){
-        if (tileEntity.agingTime[slot] != 0 && tileEntity.agingProgress[slot] != 0){
-            return tileEntity.agingProgress[slot] * 24 / tileEntity.agingTime[slot];
+    public int getCookingProgress(){
+        if (ovenData.get(0) != 0 && ovenData.get(1) != 0){
+            return ovenData.get(1) * 24 / ovenData.get(0);
         }
         return 0;
     }
@@ -78,7 +63,7 @@ public class AgingChamberContainer extends Container {
     @Override
     public boolean stillValid(PlayerEntity playerIn) {
         return stillValid(IWorldPosCallable.create(tileEntity.getLevel(), tileEntity.getBlockPos()),
-                playerIn, FoodOverflowBlocksRegister.AGING_CHAMBER.get());
+                playerIn, FoodOverflowBlocksRegister.OVEN.get());
     }
 
 

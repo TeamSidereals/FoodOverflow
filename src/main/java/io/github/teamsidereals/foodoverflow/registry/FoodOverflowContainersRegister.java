@@ -2,6 +2,7 @@ package io.github.teamsidereals.foodoverflow.registry;
 
 import io.github.teamsidereals.foodoverflow.FoodOverflowMod;
 import io.github.teamsidereals.foodoverflow.container.AgingChamberContainer;
+import io.github.teamsidereals.foodoverflow.container.OvenContainer;
 import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -25,5 +26,13 @@ public class FoodOverflowContainersRegister {
                 BlockPos pos = data.readBlockPos();
                 World world = inv.player.level;
                 return new AgingChamberContainer(windowId, world, pos, inv, inv.player);
+            })));
+
+    public static final RegistryObject<ContainerType<OvenContainer>> OVEN_CONTAINER
+            = CONTAINERS.register("oven_container",
+            () -> IForgeContainerType.create(((windowId, inv, data) -> {
+                BlockPos pos = data.readBlockPos();
+                World world = inv.player.level;
+                return new OvenContainer(windowId, world, pos, inv, inv.player);
             })));
 }

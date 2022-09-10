@@ -1,0 +1,21 @@
+{
+  "type": "foodoverflow:oven",
+  "inputs": [
+    {
+      "item": "minecraft:stick"
+    },
+    {
+      "item": "minecraft:dirt"
+    },
+    {
+      "item": "minecraft:sand"
+    }
+  ],
+  "output": {
+    "item": "minecraft:diamond"
+  },
+  "addition": {
+    "item": "minecraft:iron_ingot"
+  },
+  "time" : 20
+}

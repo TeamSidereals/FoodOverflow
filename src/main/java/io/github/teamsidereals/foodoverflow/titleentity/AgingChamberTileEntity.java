@@ -157,7 +157,7 @@ public class AgingChamberTileEntity extends TileEntity implements ITickableTileE
         Set<IRecipe<?>> recipes = findRecipesByType(FoodOverflowRecipeTypesRegister.AGING_RECIPE, this.level);
         for (IRecipe<?> iRecipe : recipes) {
             AgingChamberRecipe recipe = (AgingChamberRecipe) iRecipe;
-            if (recipe.matchesSlot(new RecipeWrapper(this.itemHandler), this.level, slot)) {
+            if (recipe.matchesSlot(new RecipeWrapper(this.itemHandler), slot)) {
                 return recipe;
             }
         }

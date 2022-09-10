@@ -32,7 +32,7 @@ public class AgingChamberRecipe implements IAgingChamberRecipe{
         this.agingTime = agingTime;
     }
 
-    public boolean matchesSlot(IInventory inv, World worldIn, int slot) {
+    public boolean matchesSlot(IInventory inv, int slot) {
         if (this.input.test(inv.getItem(slot))) {
             return true;
         }

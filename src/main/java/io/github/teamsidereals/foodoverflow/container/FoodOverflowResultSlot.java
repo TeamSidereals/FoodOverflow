@@ -4,8 +4,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 
-public class AgingChamberResultSlot extends SlotItemHandler {
-    public AgingChamberResultSlot(IItemHandler itemHandler, int index, int xPosition, int yPosition) {
+public class FoodOverflowResultSlot extends SlotItemHandler {
+    public FoodOverflowResultSlot(IItemHandler itemHandler, int index, int xPosition, int yPosition) {
         super(itemHandler, index, xPosition, yPosition);
     }
 
