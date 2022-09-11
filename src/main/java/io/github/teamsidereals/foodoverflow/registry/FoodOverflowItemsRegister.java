@@ -57,7 +57,7 @@ public class FoodOverflowItemsRegister {
                                     .saturationMod(1f)
                                     .fast()
                                     .build())
-            )
+            ).displayEatingEffect()
     );
 
     public static final RegistryObject<Item> CHEESE = ITEMS.register("cheese", () ->
@@ -75,6 +75,7 @@ public class FoodOverflowItemsRegister {
                                     .fast()
                                     .build())
             )
+                    .displayEatingEffect()
                     .alsoSavory()
                     .modifyDamageRes(-100,0)
                     .modifyAbsorption(-100,0)
@@ -87,7 +88,9 @@ public class FoodOverflowItemsRegister {
                                     .nutrition(6)
                                     .saturationMod(1f)
                                     .build())
-            ).alsoBland()
+            )
+                    .displayEatingEffect()
+                    .alsoBland()
     );
 
     public static final RegistryObject<Item> PIG_FAT = ITEMS.register("pig_fat", () ->
@@ -111,6 +114,7 @@ public class FoodOverflowItemsRegister {
                                     .fast()
                                     .build())
             )
+                    .displayEatingEffect()
                     .modifyDamageRes(-100,0)
                     .modifyAbsorption(-100,0)
     );
@@ -123,6 +127,7 @@ public class FoodOverflowItemsRegister {
                                     .saturationMod(0.8f)
                                     .build())
             )
+                    .displayEatingEffect()
     );
 
     public static final RegistryObject<Item> KELP_SOUP = ITEMS.register("kelp_soup", () ->
@@ -132,6 +137,8 @@ public class FoodOverflowItemsRegister {
                                     .nutrition(9)
                                     .saturationMod(0.6f)
                                     .build())
-            ).alsoHealthy()
+            )
+                    .displayEatingEffect()
+                    .alsoHealthy()
     );
 }

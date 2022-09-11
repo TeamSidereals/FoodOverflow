@@ -27,7 +27,7 @@ public class FoodOverflowFoodItem extends Item {
     public boolean isSweet;
     public boolean isHealthy;
     public boolean isBland;
-    public boolean isEffectModified;
+    public boolean displayEatingEffect;
     public int DamageResTimeModify;
     public int DamageResLevelModify;
     public int AbsorptionTimeModify;
@@ -50,7 +50,7 @@ public class FoodOverflowFoodItem extends Item {
         this.isSavory = false;
         this.isHealthy = false;
         this.isBland = false;
-        this.isEffectModified = false;
+        this.displayEatingEffect = false;
         this.DamageResTimeModify = 0;
         this.DamageResLevelModify = 0;
         this.AbsorptionTimeModify = 0;
@@ -84,52 +84,50 @@ public class FoodOverflowFoodItem extends Item {
         return this;
     }
 
+    public FoodOverflowFoodItem displayEatingEffect(){
+        this.displayEatingEffect = true;
+        return this;
+    }
+
     public FoodOverflowFoodItem modifyDamageRes(int time, int level){
         this.DamageResTimeModify = time;
         this.DamageResLevelModify = level;
-        this.isEffectModified = true;
         return this;
     }
 
     public FoodOverflowFoodItem modifyAbsorption(int time, int level){
         this.AbsorptionTimeModify = time;
         this.AbsorptionLevelModify = level;
-        this.isEffectModified = true;
         return this;
     }
 
     public FoodOverflowFoodItem modifySpeeddown(int time, int level){
         this.SpeedDownTimeModify = time;
         this.SpeedDownLevelModify = level;
-        this.isEffectModified = true;
         return this;
     }
 
     public FoodOverflowFoodItem modifyHaste(int time, int level){
         this.HasteTimeModify = time;
         this.HasteLevelModify = level;
-        this.isEffectModified = true;
         return this;
     }
 
     public FoodOverflowFoodItem modifySpeedUp(int time, int level){
         this.SpeedUpTimeModify = time;
         this.SpeedUpLevelModify = level;
-        this.isEffectModified = true;
         return this;
     }
 
     public FoodOverflowFoodItem modifyRegeneration(int time, int level){
         this.RegenerationTimeModify = time;
         this.RegenerationLevelModify = level;
-        this.isEffectModified = true;
         return this;
     }
 
     public FoodOverflowFoodItem modifyNightVision(int time, int level){
         this.NightVisionTimeModify = time;
         this.NightVisionLevelModify = level;
-        this.isEffectModified = true;
         return this;
     }
 
@@ -160,13 +158,13 @@ public class FoodOverflowFoodItem extends Item {
                     )
             );
         }
-        if (((FoodOverflowFoodItem) stack.getItem()).isEffectModified){
+        if (((FoodOverflowFoodItem) stack.getItem()).displayEatingEffect){
             tooltip.add(new TranslationTextComponent(
                             ""
                     )
             );
             tooltip.add(new TranslationTextComponent(
-                            "\u00A7b-Eating Effect Modify-\u00A7r"
+                            "\u00A7b-Eating Effect-\u00A7r"
                     )
             );
             if (!Screen.hasShiftDown()){
@@ -176,100 +174,93 @@ public class FoodOverflowFoodItem extends Item {
                 );
             }
             else {
-                if (((FoodOverflowFoodItem) stack.getItem()).DamageResTimeModify != 0
-                        || ((FoodOverflowFoodItem) stack.getItem()).DamageResLevelModify != 0){
-                    int time = ((FoodOverflowFoodItem) stack.getItem()).DamageResTimeModify;
-                    int level = ((FoodOverflowFoodItem) stack.getItem()).DamageResLevelModify;
+                if (((FoodOverflowFoodItem) stack.getItem()).isSavory){
+                    int time = ((FoodOverflowFoodItem) stack.getItem()).DamageResTimeModify + 200;
+                    int level = ((FoodOverflowFoodItem) stack.getItem()).DamageResLevelModify + 1;
                     tooltip.add(new TranslationTextComponent(
                                     "Resistance: "
-                                            + (time == 0 ? "" : time > 0 ? "\u00A7a+" + time/20 + "s" : "\u00A7c" + time/20 + "s")
+                                            + (time <= 0 ? "" : "\u00A7a" + time/20 + "s")
                                             + "\u00A7r"
                                             + (((time != 0) && (level != 0)) ? " : " : "")
-                                            + (level == 0 ? "" : "\u00A7d+" + level + "lv")
+                                            + (level == 0 ? "" : "\u00A7dlv" + level)
                                             + "\u00A7r"
                             )
                     );
                 }
-                if (((FoodOverflowFoodItem) stack.getItem()).AbsorptionTimeModify != 0
-                        || ((FoodOverflowFoodItem) stack.getItem()).AbsorptionLevelModify != 0){
-                    int time = ((FoodOverflowFoodItem) stack.getItem()).AbsorptionTimeModify;
-                    int level = ((FoodOverflowFoodItem) stack.getItem()).AbsorptionLevelModify;
+                if (((FoodOverflowFoodItem) stack.getItem()).isSavory){
+                    int time = ((FoodOverflowFoodItem) stack.getItem()).AbsorptionTimeModify + 200;
+                    int level = ((FoodOverflowFoodItem) stack.getItem()).AbsorptionLevelModify + 1;
                     tooltip.add(new TranslationTextComponent(
                                     "Absorption: "
-                                            + (time == 0 ? "" : time > 0 ? "\u00A7a+" + time/20 + "s" : "\u00A7c" + time/20 + "s")
+                                            + (time <= 0 ? "" : "\u00A7a" + time/20 + "s")
                                             + "\u00A7r"
                                             + (((time != 0) && (level != 0)) ? " : " : "")
-                                            + (level == 0 ? "" : "\u00A7d+" + level + "lv")
+                                            + (level == 0 ? "" : "\u00A7dlv" + level)
                                             + "\u00A7r"
                             )
                     );
                 }
-                if (((FoodOverflowFoodItem) stack.getItem()).SpeedDownTimeModify != 0
-                        || ((FoodOverflowFoodItem) stack.getItem()).SpeedDownLevelModify != 0){
-                    int time = ((FoodOverflowFoodItem) stack.getItem()).SpeedDownTimeModify;
-                    int level = ((FoodOverflowFoodItem) stack.getItem()).SpeedDownLevelModify;
+                if (((FoodOverflowFoodItem) stack.getItem()).isSavory){
+                    int time = ((FoodOverflowFoodItem) stack.getItem()).SpeedDownTimeModify + 200;
+                    int level = ((FoodOverflowFoodItem) stack.getItem()).SpeedDownLevelModify + 1;
                     tooltip.add(new TranslationTextComponent(
                                     "Slowness: "
-                                            + (time == 0 ? "" : time > 0 ? "\u00A7a+" + time/20 + "s" : "\u00A7c" + time/20 + "s")
+                                            + (time <= 0 ? "" : "\u00A7c" + time/20 + "s")
                                             + "\u00A7r"
                                             + (((time != 0) && (level != 0)) ? " : " : "")
-                                            + (level == 0 ? "" : "\u00A7d+" + level + "lv")
+                                            + (level == 0 ? "" : "\u00A7dlv" + level)
                                             + "\u00A7r"
                             )
                     );
                 }
-                if (((FoodOverflowFoodItem) stack.getItem()).HasteTimeModify != 0
-                        || ((FoodOverflowFoodItem) stack.getItem()).HasteLevelModify != 0){
-                    int time = ((FoodOverflowFoodItem) stack.getItem()).HasteTimeModify;
-                    int level = ((FoodOverflowFoodItem) stack.getItem()).HasteLevelModify;
+                if (((FoodOverflowFoodItem) stack.getItem()).isSweet){
+                    int time = ((FoodOverflowFoodItem) stack.getItem()).HasteTimeModify + 200;
+                    int level = ((FoodOverflowFoodItem) stack.getItem()).HasteLevelModify + 1;
                     tooltip.add(new TranslationTextComponent(
                                     "Haste: "
-                                            + (time == 0 ? "" : time > 0 ? "\u00A7a+" + time/20 + "s" : "\u00A7c" + time/20 + "s")
+                                            + (time <= 0 ? "" : "\u00A7a" + time/20 + "s")
                                             + "\u00A7r"
                                             + (((time != 0) && (level != 0)) ? " : " : "")
-                                            + (level == 0 ? "" : "\u00A7d+" + level + "lv")
+                                            + (level == 0 ? "" : "\u00A7dlv" + level)
                                             + "\u00A7r"
                             )
                     );
                 }
-                if (((FoodOverflowFoodItem) stack.getItem()).SpeedUpTimeModify != 0
-                        || ((FoodOverflowFoodItem) stack.getItem()).SpeedUpLevelModify != 0){
-                    int time = ((FoodOverflowFoodItem) stack.getItem()).SpeedUpTimeModify;
-                    int level = ((FoodOverflowFoodItem) stack.getItem()).SpeedUpLevelModify;
+                if (((FoodOverflowFoodItem) stack.getItem()).isSweet){
+                    int time = ((FoodOverflowFoodItem) stack.getItem()).SpeedUpTimeModify + 200;
+                    int level = ((FoodOverflowFoodItem) stack.getItem()).SpeedUpLevelModify + 1;
                     tooltip.add(new TranslationTextComponent(
                                     "Speed: "
-                                            + (time == 0 ? "" : time > 0 ? "\u00A7a+" + time/20 + "s" : "\u00A7c" + time/20 + "s")
+                                            + (time <= 0 ? "" : "\u00A7a" + time/20 + "s")
                                             + "\u00A7r"
                                             + (((time != 0) && (level != 0)) ? " : " : "")
-                                            + (level == 0 ? "" : "\u00A7d+" + level + "lv")
+                                            + (level == 0 ? "" : "\u00A7dlv" + level)
                                             + "\u00A7r"
                             )
                     );
                 }
-                if (((FoodOverflowFoodItem) stack.getItem()).RegenerationTimeModify != 0
-                        || ((FoodOverflowFoodItem) stack.getItem()).RegenerationLevelModify != 0){
-                    int time = ((FoodOverflowFoodItem) stack.getItem()).RegenerationTimeModify;
-                    int level = ((FoodOverflowFoodItem) stack.getItem()).RegenerationLevelModify;
+                if (((FoodOverflowFoodItem) stack.getItem()).isHealthy){
+                    int time = ((FoodOverflowFoodItem) stack.getItem()).RegenerationTimeModify + 100;
+                    int level = ((FoodOverflowFoodItem) stack.getItem()).RegenerationLevelModify + 1;
                     tooltip.add(new TranslationTextComponent(
                                     "Regeneration: "
-                                            + (time == 0 ? "" : time > 0 ? "\u00A7a+" + time/20 + "s" : "\u00A7c" + time/20 + "s")
+                                            + (time <= 0 ? "" : "\u00A7a" + time/20 + "s")
                                             + "\u00A7r"
                                             + (((time != 0) && (level != 0)) ? " : " : "")
-                                            + (level == 0 ? "" : "\u00A7d+" + level + "lv")
+                                            + (level == 0 ? "" : "\u00A7dlv" + level)
                                             + "\u00A7r"
                             )
                     );
                 }
-                if (((FoodOverflowFoodItem) stack.getItem()).NightVisionTimeModify != 0
-                        || ((FoodOverflowFoodItem) stack.getItem()).NightVisionLevelModify != 0){
-                    int time = ((FoodOverflowFoodItem) stack.getItem()).NightVisionTimeModify;
-                    int level = ((FoodOverflowFoodItem) stack.getItem()).NightVisionLevelModify;
+                if (((FoodOverflowFoodItem) stack.getItem()).isHealthy){
+                    int time = ((FoodOverflowFoodItem) stack.getItem()).NightVisionTimeModify + 100;
+                    int level = ((FoodOverflowFoodItem) stack.getItem()).NightVisionLevelModify + 1;
                     tooltip.add(new TranslationTextComponent(
                                     "Night Vision: "
-                                            + (time == 0 ? "" : time > 0 ? "\u00A7a+" + time/20 + "s" : "\u00A7c" + time/20 + "s")
+                                            + (time <= 0 ? "" : "\u00A7a" + time/20 + "s")
                                             + "\u00A7r"
                                             + (((time != 0) && (level != 0)) ? " : " : "")
-                                            + (level == 0 ? "" : "\u00A7d+" + level + "lv")
+                                            + (level == 0 ? "" : "\u00A7dlv" + level)
                                             + "\u00A7r"
                             )
                     );
