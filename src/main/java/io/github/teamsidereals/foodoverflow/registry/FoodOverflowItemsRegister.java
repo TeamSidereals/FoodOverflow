@@ -4,6 +4,7 @@ import io.github.teamsidereals.foodoverflow.FoodOverflowMod;
 import io.github.teamsidereals.foodoverflow.item.FoodOverflowItemGroup;
 import io.github.teamsidereals.foodoverflow.item.equipment.FoodOverflowItemTier;
 import io.github.teamsidereals.foodoverflow.item.equipment.pickaxe.CaramelPickaxe;
+import io.github.teamsidereals.foodoverflow.item.equipment.shovel.CaramelShovel;
 import io.github.teamsidereals.foodoverflow.item.equipment.sword.CaramelSword;
 import io.github.teamsidereals.foodoverflow.item.food.FoodOverflowFoodItem;
 import io.github.teamsidereals.foodoverflow.item.food.bland.FoodOverflowBlandItem;
@@ -49,6 +50,12 @@ public class FoodOverflowItemsRegister {
             )
     );
 
+    public static final RegistryObject<Item> CARAMEL_SHOVEL = ITEMS.register("caramel_shovel", () ->
+            new CaramelShovel(FoodOverflowItemTier.CARAMEL, 1, -2.6F,
+                    new Item.Properties().tab(FoodOverflowItemGroup.FOOD_OVERFLOW_GROUP)
+            )
+    );
+
     public static final RegistryObject<Item> LOLLIPOP = ITEMS.register("lollipop", () ->
             new FoodOverflowSweetItem(
                     new Item.Properties().tab(FoodOverflowItemGroup.FOOD_OVERFLOW_GROUP)
@@ -58,6 +65,20 @@ public class FoodOverflowItemsRegister {
                                     .fast()
                                     .build())
             ).displayEatingEffect()
+    );
+
+    public static final RegistryObject<Item> GUMMY_WORM = ITEMS.register("gummy_worm", () ->
+            new FoodOverflowSweetItem(
+                    new Item.Properties().tab(FoodOverflowItemGroup.FOOD_OVERFLOW_GROUP)
+                            .food(new Food.Builder()
+                                    .nutrition(1)
+                                    .saturationMod(2f)
+                                    .fast()
+                                    .build())
+            )
+                    .displayEatingEffect()
+                    .modifyHaste(100, 1)
+                    .modifySpeedUp(-200,0)
     );
 
     public static final RegistryObject<Item> CHEESE = ITEMS.register("cheese", () ->
