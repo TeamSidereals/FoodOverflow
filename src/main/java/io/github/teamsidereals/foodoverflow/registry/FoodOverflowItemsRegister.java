@@ -90,10 +90,29 @@ public class FoodOverflowItemsRegister {
             ).alsoBland()
     );
 
+    public static final RegistryObject<Item> PIG_FAT = ITEMS.register("pig_fat", () ->
+            new FoodOverflowFoodItem(
+                    new Item.Properties().tab(FoodOverflowItemGroup.FOOD_OVERFLOW_GROUP)
+            )
+    );
+
     public static final RegistryObject<Item> COOKING_OIL = ITEMS.register("cooking_oil", () ->
             new FoodOverflowFoodItem(
                     new Item.Properties().tab(FoodOverflowItemGroup.FOOD_OVERFLOW_GROUP)
             )
+    );
+
+    public static final RegistryObject<Item> CRISPY_PORK_RIND = ITEMS.register("crispy_pork_rind", () ->
+            new FoodOverflowSavoryItem(
+                    new Item.Properties().tab(FoodOverflowItemGroup.FOOD_OVERFLOW_GROUP)
+                            .food(new Food.Builder()
+                                    .nutrition(1)
+                                    .saturationMod(0.5f)
+                                    .fast()
+                                    .build())
+            )
+                    .modifyDamageRes(-100,0)
+                    .modifyAbsorption(-100,0)
     );
 
     public static final RegistryObject<Item> SANDWICH = ITEMS.register("sandwich", () ->
