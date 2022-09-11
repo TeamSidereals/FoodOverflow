@@ -1,0 +1,18 @@
+{
+  "type": "foodoverflow:oven",
+  "inputs": [
+    {
+      "item": "minecraft:apple"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "output": {
+    "item": "foodoverflow:apple_jam"
+  },
+  "addition": {
+    "item": "minecraft:air"
+  },
+  "time" : 20
+}

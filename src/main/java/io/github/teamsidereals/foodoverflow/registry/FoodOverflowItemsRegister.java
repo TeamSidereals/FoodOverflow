@@ -9,6 +9,7 @@ import io.github.teamsidereals.foodoverflow.item.equipment.sword.CaramelSword;
 import io.github.teamsidereals.foodoverflow.item.food.FoodOverflowFoodItem;
 import io.github.teamsidereals.foodoverflow.item.food.bland.FoodOverflowBlandItem;
 import io.github.teamsidereals.foodoverflow.item.food.savory.FoodOverflowSavoryItem;
+import io.github.teamsidereals.foodoverflow.item.food.sweet.ChorusFruitJamItem;
 import io.github.teamsidereals.foodoverflow.item.food.sweet.FoodOverflowSweetItem;
 import net.minecraft.item.Food;
 import net.minecraft.item.Item;
@@ -79,6 +80,58 @@ public class FoodOverflowItemsRegister {
                     .displayEatingEffect()
                     .modifyHaste(100, 1)
                     .modifySpeedUp(-200,0)
+    );
+
+    public static final RegistryObject<Item> APPLE_JAM = ITEMS.register("apple_jam", () ->
+            new FoodOverflowSweetItem(
+                    new Item.Properties().tab(FoodOverflowItemGroup.FOOD_OVERFLOW_GROUP)
+                            .food(new Food.Builder()
+                                    .nutrition(5)
+                                    .saturationMod(0.3f)
+                                    .fast()
+                                    .build())
+            )
+                    .displayEatingEffect()
+    );
+
+    public static final RegistryObject<Item> BEETROOT_JAM = ITEMS.register("beetroot_jam", () ->
+            new FoodOverflowSweetItem(
+                    new Item.Properties().tab(FoodOverflowItemGroup.FOOD_OVERFLOW_GROUP)
+                            .food(new Food.Builder()
+                                    .nutrition(2)
+                                    .saturationMod(0.5f)
+                                    .fast()
+                                    .build())
+            )
+                    .displayEatingEffect()
+                    .modifySpeedUp(-100,0)
+                    .modifyHaste(-100,0)
+    );
+
+    public static final RegistryObject<Item> CHORUS_FRUIT_JAM = ITEMS.register("chorus_fruit_jam", () ->
+            new ChorusFruitJamItem(
+                    new Item.Properties().tab(FoodOverflowItemGroup.FOOD_OVERFLOW_GROUP)
+                            .food(new Food.Builder()
+                                    .nutrition(5)
+                                    .saturationMod(0.3f)
+                                    .fast()
+                                    .build())
+            )
+                    .displayEatingEffect()
+    );
+
+    public static final RegistryObject<Item> SWEET_BERRY_JAM = ITEMS.register("sweet_berry_jam", () ->
+            new FoodOverflowSweetItem(
+                    new Item.Properties().tab(FoodOverflowItemGroup.FOOD_OVERFLOW_GROUP)
+                            .food(new Food.Builder()
+                                    .nutrition(3)
+                                    .saturationMod(0.2f)
+                                    .fast()
+                                    .build())
+            )
+                    .displayEatingEffect()
+                    .modifySpeedUp(-100,0)
+                    .modifyHaste(-100,0)
     );
 
     public static final RegistryObject<Item> CHEESE = ITEMS.register("cheese", () ->
