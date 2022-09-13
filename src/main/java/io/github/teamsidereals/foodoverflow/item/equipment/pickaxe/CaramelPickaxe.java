@@ -37,7 +37,7 @@ public class CaramelPickaxe extends FoodOverflowPickaxe {
     public boolean mineBlock(ItemStack stack, World world, BlockState p_179218_3_, BlockPos pos, LivingEntity p_179218_5_) {
         if (!world.isClientSide){
             Random roll = new Random();
-            if (roll.nextFloat() < 0.1F){
+            if (roll.nextInt(100) < 10){
                 if (world.getBlockEntity(pos.above()) == null){
                     pos = pos.above();
                 }

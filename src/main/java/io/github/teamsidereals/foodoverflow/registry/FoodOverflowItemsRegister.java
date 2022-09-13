@@ -3,6 +3,7 @@ package io.github.teamsidereals.foodoverflow.registry;
 import io.github.teamsidereals.foodoverflow.FoodOverflowMod;
 import io.github.teamsidereals.foodoverflow.item.FoodOverflowItemGroup;
 import io.github.teamsidereals.foodoverflow.item.equipment.FoodOverflowItemTier;
+import io.github.teamsidereals.foodoverflow.item.equipment.axe.CaramelAxe;
 import io.github.teamsidereals.foodoverflow.item.equipment.pickaxe.CaramelPickaxe;
 import io.github.teamsidereals.foodoverflow.item.equipment.shovel.CaramelShovel;
 import io.github.teamsidereals.foodoverflow.item.equipment.sword.CaramelSword;
@@ -51,6 +52,12 @@ public class FoodOverflowItemsRegister {
             )
     );
 
+    public static final RegistryObject<Item> CARAMEL_AXE = ITEMS.register("caramel_axe", () ->
+            new CaramelAxe(FoodOverflowItemTier.CARAMEL, 7, -3.0F,
+                    new Item.Properties().tab(FoodOverflowItemGroup.FOOD_OVERFLOW_GROUP)
+            )
+    );
+
     public static final RegistryObject<Item> CARAMEL_SHOVEL = ITEMS.register("caramel_shovel", () ->
             new CaramelShovel(FoodOverflowItemTier.CARAMEL, 1, -2.6F,
                     new Item.Properties().tab(FoodOverflowItemGroup.FOOD_OVERFLOW_GROUP)
@@ -80,6 +87,20 @@ public class FoodOverflowItemsRegister {
                     .displayEatingEffect()
                     .modifyHaste(100, 1)
                     .modifySpeedUp(-200,0)
+    );
+
+    public static final RegistryObject<Item> CANDY_CANE = ITEMS.register("candy_cane", () ->
+            new FoodOverflowSweetItem(
+                    new Item.Properties().tab(FoodOverflowItemGroup.FOOD_OVERFLOW_GROUP)
+                            .food(new Food.Builder()
+                                    .nutrition(1)
+                                    .saturationMod(2f)
+                                    .fast()
+                                    .build())
+            )
+                    .displayEatingEffect()
+                    .modifyHaste(-200, 0)
+                    .modifySpeedUp(100,1)
     );
 
     public static final RegistryObject<Item> APPLE_JAM = ITEMS.register("apple_jam", () ->
