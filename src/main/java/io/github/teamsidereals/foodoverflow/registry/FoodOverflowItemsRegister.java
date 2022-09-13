@@ -85,7 +85,7 @@ public class FoodOverflowItemsRegister {
                                     .build())
             )
                     .displayEatingEffect()
-                    .modifyHaste(100, 1)
+                    .modifyHaste(100, 0)
                     .modifySpeedUp(-200,0)
     );
 
@@ -100,7 +100,7 @@ public class FoodOverflowItemsRegister {
             )
                     .displayEatingEffect()
                     .modifyHaste(-200, 0)
-                    .modifySpeedUp(100,1)
+                    .modifySpeedUp(100,0)
     );
 
     public static final RegistryObject<Item> APPLE_JAM = ITEMS.register("apple_jam", () ->
