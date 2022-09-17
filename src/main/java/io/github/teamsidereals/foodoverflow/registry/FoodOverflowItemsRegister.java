@@ -3,6 +3,8 @@ package io.github.teamsidereals.foodoverflow.registry;
 import io.github.teamsidereals.foodoverflow.FoodOverflowMod;
 import io.github.teamsidereals.foodoverflow.item.FoodOverflowItemGroup;
 import io.github.teamsidereals.foodoverflow.item.equipment.FoodOverflowItemTier;
+import io.github.teamsidereals.foodoverflow.item.equipment.armor.CaramelArmorItem;
+import io.github.teamsidereals.foodoverflow.item.equipment.armor.FoodOverflowArmorMaterial;
 import io.github.teamsidereals.foodoverflow.item.equipment.axe.CaramelAxe;
 import io.github.teamsidereals.foodoverflow.item.equipment.pickaxe.CaramelPickaxe;
 import io.github.teamsidereals.foodoverflow.item.equipment.shovel.CaramelShovel;
@@ -12,6 +14,7 @@ import io.github.teamsidereals.foodoverflow.item.food.bland.FoodOverflowBlandIte
 import io.github.teamsidereals.foodoverflow.item.food.savory.FoodOverflowSavoryItem;
 import io.github.teamsidereals.foodoverflow.item.food.sweet.ChorusFruitJamItem;
 import io.github.teamsidereals.foodoverflow.item.food.sweet.FoodOverflowSweetItem;
+import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Food;
 import net.minecraft.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -33,6 +36,30 @@ public class FoodOverflowItemsRegister {
 
     public static final RegistryObject<Item> CARAMEL_BAR = ITEMS.register("caramel_bar", () ->
             new FoodOverflowSweetItem(
+                    new Item.Properties().tab(FoodOverflowItemGroup.FOOD_OVERFLOW_GROUP)
+            )
+    );
+
+    public static final RegistryObject<Item> CARAMEL_HELMET = ITEMS.register("caramel_helmet", () ->
+            new CaramelArmorItem(FoodOverflowArmorMaterial.CARAMEL, EquipmentSlotType.HEAD,
+                    new Item.Properties().tab(FoodOverflowItemGroup.FOOD_OVERFLOW_GROUP)
+            )
+    );
+
+    public static final RegistryObject<Item> CARAMEL_CHESTPLATE = ITEMS.register("caramel_chestplate", () ->
+            new CaramelArmorItem(FoodOverflowArmorMaterial.CARAMEL, EquipmentSlotType.CHEST,
+                    new Item.Properties().tab(FoodOverflowItemGroup.FOOD_OVERFLOW_GROUP)
+            )
+    );
+
+    public static final RegistryObject<Item> CARAMEL_LEGGINGS = ITEMS.register("caramel_leggings", () ->
+            new CaramelArmorItem(FoodOverflowArmorMaterial.CARAMEL, EquipmentSlotType.LEGS,
+                    new Item.Properties().tab(FoodOverflowItemGroup.FOOD_OVERFLOW_GROUP)
+            )
+    );
+
+    public static final RegistryObject<Item> CARAMEL_BOOTS = ITEMS.register("caramel_boots", () ->
+            new CaramelArmorItem(FoodOverflowArmorMaterial.CARAMEL, EquipmentSlotType.FEET,
                     new Item.Properties().tab(FoodOverflowItemGroup.FOOD_OVERFLOW_GROUP)
             )
     );
