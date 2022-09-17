@@ -4,6 +4,8 @@ import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.SoundEvent;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
@@ -42,6 +44,7 @@ public class FoodOverflowFoodItem extends Item {
     public int RegenerationLevelModify;
     public int NightVisionTimeModify;
     public int NightVisionLevelModify;
+    public boolean isDrinkable;
 
 
     public FoodOverflowFoodItem(Properties properties) {
@@ -65,6 +68,7 @@ public class FoodOverflowFoodItem extends Item {
         this.RegenerationLevelModify = 0;
         this.NightVisionTimeModify = 0;
         this.NightVisionLevelModify = 0;
+        this.isDrinkable = false;
     }
 
     public FoodOverflowFoodItem alsoSavory(){
@@ -128,6 +132,11 @@ public class FoodOverflowFoodItem extends Item {
     public FoodOverflowFoodItem modifyNightVision(int time, int level){
         this.NightVisionTimeModify = time;
         this.NightVisionLevelModify = level;
+        return this;
+    }
+
+    public FoodOverflowFoodItem drinkable(){
+        this.isDrinkable = true;
         return this;
     }
 
@@ -273,6 +282,26 @@ public class FoodOverflowFoodItem extends Item {
                     );
                 }
             }
+        }
+    }
+
+    @Override
+    public SoundEvent getDrinkingSound() {
+        if (isDrinkable){
+            return SoundEvents.GENERIC_DRINK;
+        }
+        else{
+            return SoundEvents.GENERIC_EAT;
+        }
+    }
+
+    @Override
+    public SoundEvent getEatingSound() {
+        if (isDrinkable){
+            return SoundEvents.GENERIC_DRINK;
+        }
+        else{
+            return SoundEvents.GENERIC_EAT;
         }
     }
 }

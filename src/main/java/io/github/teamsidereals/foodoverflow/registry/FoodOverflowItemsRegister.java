@@ -140,6 +140,7 @@ public class FoodOverflowItemsRegister {
                                     .build())
             )
                     .displayEatingEffect()
+                    .drinkable()
     );
 
     public static final RegistryObject<Item> BEETROOT_JAM = ITEMS.register("beetroot_jam", () ->
@@ -152,6 +153,7 @@ public class FoodOverflowItemsRegister {
                                     .build())
             )
                     .displayEatingEffect()
+                    .drinkable()
                     .modifySpeedUp(-100,0)
                     .modifyHaste(-100,0)
     );
@@ -166,6 +168,7 @@ public class FoodOverflowItemsRegister {
                                     .build())
             )
                     .displayEatingEffect()
+                    .drinkable()
     );
 
     public static final RegistryObject<Item> SWEET_BERRY_JAM = ITEMS.register("sweet_berry_jam", () ->
@@ -178,6 +181,7 @@ public class FoodOverflowItemsRegister {
                                     .build())
             )
                     .displayEatingEffect()
+                    .drinkable()
                     .modifySpeedUp(-100,0)
                     .modifyHaste(-100,0)
     );
