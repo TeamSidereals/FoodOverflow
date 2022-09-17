@@ -43,7 +43,7 @@ public class CaramelArmorItem extends FoodOverflowArmorItem {
         }
         else {
             tooltip.add(new TranslationTextComponent(
-                            "\u00A7aImmune Slowness and Mining Fatigue\u00A7r"
+                            "\u00A7aImmune Slowness and Mining Fatigue (consume durability)\u00A7r"
                     )
             );
         }
@@ -51,13 +51,27 @@ public class CaramelArmorItem extends FoodOverflowArmorItem {
 
     @Override
     public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
+        boolean triggerEffect = false;
         if(!world.isClientSide()) {
             if(hasFullSetArmor(player)) {
                 if (player.getEffect(Effects.DIG_SLOWDOWN) != null){
                     player.removeEffect(Effects.DIG_SLOWDOWN);
+                    triggerEffect = true;
                 }
                 if (player.getEffect(Effects.MOVEMENT_SLOWDOWN) != null){
                     player.removeEffect(Effects.MOVEMENT_SLOWDOWN);
+                    triggerEffect = true;
+                }
+                if (triggerEffect){
+                    ItemStack boots = player.inventory.getArmor(0);
+                    ItemStack leggings = player.inventory.getArmor(1);
+                    ItemStack chestplate = player.inventory.getArmor(2);
+                    ItemStack helmet = player.inventory.getArmor(3);
+
+                    helmet.setDamageValue(stack.getDamageValue() + 1);
+                    chestplate.setDamageValue(stack.getDamageValue() + 1);
+                    leggings.setDamageValue(stack.getDamageValue() + 1);
+                    boots.setDamageValue(stack.getDamageValue() + 1);
                 }
             }
         }
