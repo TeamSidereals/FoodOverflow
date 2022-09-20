@@ -5,6 +5,7 @@ import io.github.teamsidereals.foodoverflow.item.FoodOverflowItemGroup;
 import io.github.teamsidereals.foodoverflow.item.equipment.FoodOverflowItemTier;
 import io.github.teamsidereals.foodoverflow.item.equipment.armor.CaramelArmorItem;
 import io.github.teamsidereals.foodoverflow.item.equipment.armor.FoodOverflowArmorMaterial;
+import io.github.teamsidereals.foodoverflow.item.equipment.armor.WheatArmorItem;
 import io.github.teamsidereals.foodoverflow.item.equipment.axe.CaramelAxe;
 import io.github.teamsidereals.foodoverflow.item.equipment.pickaxe.CaramelPickaxe;
 import io.github.teamsidereals.foodoverflow.item.equipment.shovel.CaramelShovel;
@@ -266,5 +267,29 @@ public class FoodOverflowItemsRegister {
             )
                     .displayEatingEffect()
                     .alsoHealthy()
+    );
+
+    public static final RegistryObject<Item> WHEAT_HELMET = ITEMS.register("wheat_helmet", () ->
+            new WheatArmorItem(FoodOverflowArmorMaterial.WHEAT, EquipmentSlotType.HEAD,
+                    new Item.Properties().tab(FoodOverflowItemGroup.FOOD_OVERFLOW_GROUP)
+            )
+    );
+
+    public static final RegistryObject<Item> WHEAT_CHESTPLATE = ITEMS.register("wheat_chestplate", () ->
+            new WheatArmorItem(FoodOverflowArmorMaterial.WHEAT, EquipmentSlotType.CHEST,
+                    new Item.Properties().tab(FoodOverflowItemGroup.FOOD_OVERFLOW_GROUP)
+            )
+    );
+
+    public static final RegistryObject<Item> WHEAT_LEGGINGS = ITEMS.register("wheat_leggings", () ->
+            new WheatArmorItem(FoodOverflowArmorMaterial.WHEAT, EquipmentSlotType.LEGS,
+                    new Item.Properties().tab(FoodOverflowItemGroup.FOOD_OVERFLOW_GROUP)
+            )
+    );
+
+    public static final RegistryObject<Item> WHEAT_BOOTS = ITEMS.register("wheat_boots", () ->
+            new WheatArmorItem(FoodOverflowArmorMaterial.WHEAT, EquipmentSlotType.FEET,
+                    new Item.Properties().tab(FoodOverflowItemGroup.FOOD_OVERFLOW_GROUP)
+            )
     );
 }

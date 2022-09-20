@@ -4,6 +4,7 @@ import io.github.teamsidereals.foodoverflow.FoodOverflowMod;
 import io.github.teamsidereals.foodoverflow.registry.FoodOverflowItemsRegister;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.IArmorMaterial;
+import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.LazyValue;
 import net.minecraft.util.SoundEvent;
@@ -19,6 +20,11 @@ public enum FoodOverflowArmorMaterial implements IArmorMaterial {
             SoundEvents.ARMOR_EQUIP_NETHERITE, 0.0f, 0.0f,
             () -> {
                 return Ingredient.of(FoodOverflowItemsRegister.CARAMEL_BAR.get());
+            }),
+    WHEAT("wheat", 4, new int[]{1, 2, 2, 1}, 14,
+            SoundEvents.ARMOR_EQUIP_ELYTRA, 0.0f, 0.0f,
+            () -> {
+                return Ingredient.of(Items.WHEAT);
             });
 
     private static final int[] HEALTH_PER_SLOT = new int[]{13, 15, 16, 11};
