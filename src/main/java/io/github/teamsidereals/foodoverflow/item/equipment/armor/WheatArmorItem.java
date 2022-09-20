@@ -38,7 +38,7 @@ public class WheatArmorItem extends FoodOverflowArmorItem {
         }
         else {
             tooltip.add(new TranslationTextComponent(
-                            "\u00A7a50% deflect arrow fly to you (consume durability)\u00A7r"
+                            "\u00A7a50% deflect arrow fly to you\u00A7r"
                     )
             );
         }
