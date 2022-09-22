@@ -30,18 +30,10 @@ public class WheatArmorItem extends FoodOverflowArmorItem {
                         "\u00A7b-Full set bonus-\u00A7r"
                 )
         );
-        if (!Screen.hasShiftDown()){
-            tooltip.add(new TranslationTextComponent(
-                            "Hold \u00A7eSHIFT\u00A7r for details"
-                    )
-            );
-        }
-        else {
-            tooltip.add(new TranslationTextComponent(
-                            "\u00A7a50% deflect arrow fly to you\u00A7r"
-                    )
-            );
-        }
+        tooltip.add(new TranslationTextComponent(
+                        "\u00A7a50% deflect arrow fly to you\u00A7r"
+                )
+        );
     }
 
     @Override
