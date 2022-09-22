@@ -2,13 +2,16 @@ package io.github.teamsidereals.foodoverflow.registry;
 
 import io.github.teamsidereals.foodoverflow.FoodOverflowMod;
 import io.github.teamsidereals.foodoverflow.block.AgingChamberBlock;
+import io.github.teamsidereals.foodoverflow.block.FoodOverflowBlock;
 import io.github.teamsidereals.foodoverflow.block.OvenBlock;
 import io.github.teamsidereals.foodoverflow.item.FoodOverflowItemGroup;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraftforge.common.ToolType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -39,5 +42,21 @@ public class FoodOverflowBlocksRegister {
     public static final RegistryObject<Block> OVEN = registerBlock("oven",
             () -> new OvenBlock(AbstractBlock.Properties.of(Material.METAL)
                     .strength(2.0F, 6.0F)
+            ));
+
+    public static final RegistryObject<Block> SALT_ORE = registerBlock("salt_ore",
+            () -> new FoodOverflowBlock(AbstractBlock.Properties.of(Material.STONE)
+                    .strength(4.0F, 6.0F)
+                    .harvestTool(ToolType.PICKAXE)
+                    .sound(SoundType.STONE)
+                    .requiresCorrectToolForDrops()
+            ));
+
+    public static final RegistryObject<Block> SALT_BLOCK = registerBlock("salt_block",
+            () -> new FoodOverflowBlock(AbstractBlock.Properties.of(Material.STONE)
+                    .strength(4.0F, 6.0F)
+                    .harvestTool(ToolType.PICKAXE)
+                    .sound(SoundType.STONE)
+                    .requiresCorrectToolForDrops()
             ));
 }

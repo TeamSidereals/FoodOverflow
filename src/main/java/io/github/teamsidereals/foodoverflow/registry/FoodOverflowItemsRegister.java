@@ -292,4 +292,10 @@ public class FoodOverflowItemsRegister {
                     new Item.Properties().tab(FoodOverflowItemGroup.FOOD_OVERFLOW_GROUP)
             )
     );
+
+    public static final RegistryObject<Item> SALT = ITEMS.register("salt", () ->
+            new FoodOverflowFoodItem(
+                    new Item.Properties().tab(FoodOverflowItemGroup.FOOD_OVERFLOW_GROUP)
+            )
+    );
 }

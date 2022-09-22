@@ -34,5 +34,8 @@
   "screen.foodoverflow.oven" : "Oven",
   "block.foodoverflow.aging_chamber" : "Aging Chamber",
   "screen.foodoverflow.aging_chamber" : "Aging Chamber",
-  "effect.foodoverflow.tasty": "Tasty"
+  "effect.foodoverflow.tasty": "Tasty",
+  "item.foodoverflow.salt" : "Salt",
+  "block.foodoverflow.salt_ore" : "Salt Ore",
+  "block.foodoverflow.salt_block" : "Salt Block"
 }
