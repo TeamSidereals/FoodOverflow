@@ -99,11 +99,15 @@ public class OvenTileEntity extends TileEntity implements ITickableTileEntity {
 
     private void finishCooking(ItemStack output, ItemStack additionOutput) {
         for (int i = 0; i < itemHandler.getSlots() - 2; i++){
-            if (itemHandler.getStackInSlot(i) == null
+            ItemStack slotItem = itemHandler.getStackInSlot(i);
+            if (slotItem == null
                     || itemHandler.getStackInSlot(i).getItem() == Items.AIR){
                 continue;
             }
             itemHandler.extractItem(i,1,false);
+            if (slotItem.getItem() == Items.WATER_BUCKET || slotItem.getItem() == Items.MILK_BUCKET){
+                itemHandler.insertItem(i, Items.BUCKET.getDefaultInstance(), false);
+            }
         }
         itemHandler.insertItem(6, output, false);
         if (additionOutput.getItem() != Items.AIR){
