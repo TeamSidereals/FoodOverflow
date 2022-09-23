@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "foodoverflow:salt_block"
+    }
+  ],
+  "result": {
+    "item": "foodoverflow:salt",
+    "count": 9
+  }
+}

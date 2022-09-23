@@ -1,0 +1,15 @@
+{
+  "type": "foodoverflow:oven",
+  "inputs": [
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "output": {
+    "item": "foodoverflow:salt_block"
+  },
+  "addition": {
+    "item": "minecraft:air"
+  },
+  "time" : 20
+}
