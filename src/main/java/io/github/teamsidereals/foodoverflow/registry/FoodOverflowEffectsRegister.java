@@ -1,6 +1,7 @@
 package io.github.teamsidereals.foodoverflow.registry;
 
 import io.github.teamsidereals.foodoverflow.FoodOverflowMod;
+import io.github.teamsidereals.foodoverflow.effect.StickyEffect;
 import io.github.teamsidereals.foodoverflow.effect.TastyEffect;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.Attributes;
@@ -23,5 +24,9 @@ public class FoodOverflowEffectsRegister {
                             "7107DE5E-7CE8-4030-940E-514C1F160890",
                             -0.05D,
                             AttributeModifier.Operation.MULTIPLY_TOTAL)
+    );
+
+    public static final RegistryObject<Effect> STICKY = EFFECTS.register("sticky", () ->
+            new StickyEffect(EffectType.HARMFUL, 16742291)
     );
 }
