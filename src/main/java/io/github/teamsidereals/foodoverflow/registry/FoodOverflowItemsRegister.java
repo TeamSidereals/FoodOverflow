@@ -187,6 +187,21 @@ public class FoodOverflowItemsRegister {
                     .modifyHaste(-100,0)
     );
 
+    public static final RegistryObject<Item> CARAMEL_PASTE = ITEMS.register("caramel_paste", () ->
+            new FoodOverflowSweetItem(
+                    new Item.Properties().tab(FoodOverflowItemGroup.FOOD_OVERFLOW_GROUP)
+                            .food(new Food.Builder()
+                                    .nutrition(3)
+                                    .saturationMod(0.2f)
+                                    .fast()
+                                    .build())
+            )
+                    .displayEatingEffect()
+                    .drinkable()
+                    .modifySpeedUp(100,0)
+                    .modifyHaste(-100,0)
+    );
+
     public static final RegistryObject<Item> CHEESE = ITEMS.register("cheese", () ->
             new FoodOverflowBlandItem(
                     new Item.Properties().tab(FoodOverflowItemGroup.FOOD_OVERFLOW_GROUP)
