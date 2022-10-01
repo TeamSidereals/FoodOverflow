@@ -313,4 +313,10 @@ public class FoodOverflowItemsRegister {
                     new Item.Properties().tab(FoodOverflowItemGroup.FOOD_OVERFLOW_GROUP)
             )
     );
+
+    public static final RegistryObject<Item> DOUGH = ITEMS.register("dough", () ->
+            new FoodOverflowFoodItem(
+                    new Item.Properties().tab(FoodOverflowItemGroup.FOOD_OVERFLOW_GROUP)
+            )
+    );
 }
