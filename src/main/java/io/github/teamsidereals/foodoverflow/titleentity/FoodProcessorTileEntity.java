@@ -124,8 +124,8 @@ public class FoodProcessorTileEntity extends TileEntity implements ITickableTile
                 processorData.set(1, processorData.get(1) + 1);
             }
             else {
-                if (this.itemHandler.getStackInSlot(2).getCount() < 64) {
-                        ItemStack output = this.getRecipe().getResultItem();
+                ItemStack output = this.getRecipe().getResultItem();
+                if (this.itemHandler.getStackInSlot(2).getCount() + output.getCount() <= 64) {
                         if ((this.itemHandler.getStackInSlot(2).getItem() == output.getItem()
                                 || this.itemHandler.getStackInSlot(2).getItem() == Items.AIR)){
                             finishProcessing(output);

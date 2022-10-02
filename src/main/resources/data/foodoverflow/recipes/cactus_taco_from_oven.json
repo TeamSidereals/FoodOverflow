@@ -2,13 +2,16 @@
   "type": "foodoverflow:oven",
   "inputs": [
     {
-      "item": "minecraft:cactus"
+      "item": "foodoverflow:cooked_cactus"
     },
     {
       "item": "foodoverflow:cheese_slice"
     },
     {
       "item": "foodoverflow:choped_steak"
+    },
+    {
+      "item": "foodoverflow:dough"
     }
   ],
   "output": {
