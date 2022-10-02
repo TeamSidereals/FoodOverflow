@@ -1,0 +1,13 @@
+{
+  "type": "foodoverflow:food_processor",
+  "input": {
+      "item": "minecraft:dirt"
+    },
+  "addition input": {
+    "item": "minecraft:air"
+  },
+  "output": {
+    "item": "minecraft:gold_ingot"
+  },
+  "time" : 20
+}

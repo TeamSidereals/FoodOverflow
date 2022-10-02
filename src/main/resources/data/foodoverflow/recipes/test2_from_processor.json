@@ -1,0 +1,13 @@
+{
+  "type": "foodoverflow:food_processor",
+  "input": {
+      "item": "minecraft:dirt"
+    },
+  "addition input": {
+    "item": "minecraft:sand"
+  },
+  "output": {
+    "item": "minecraft:diamond"
+  },
+  "time" : 20
+}

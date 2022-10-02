@@ -3,6 +3,7 @@ package io.github.teamsidereals.foodoverflow.registry;
 import io.github.teamsidereals.foodoverflow.FoodOverflowMod;
 import io.github.teamsidereals.foodoverflow.block.AgingChamberBlock;
 import io.github.teamsidereals.foodoverflow.block.FoodOverflowBlock;
+import io.github.teamsidereals.foodoverflow.block.FoodProcessorBlock;
 import io.github.teamsidereals.foodoverflow.block.OvenBlock;
 import io.github.teamsidereals.foodoverflow.item.FoodOverflowItemGroup;
 import net.minecraft.block.AbstractBlock;
@@ -41,6 +42,11 @@ public class FoodOverflowBlocksRegister {
 
     public static final RegistryObject<Block> OVEN = registerBlock("oven",
             () -> new OvenBlock(AbstractBlock.Properties.of(Material.METAL)
+                    .strength(2.0F, 6.0F)
+            ));
+
+    public static final RegistryObject<Block> FOOD_PROCESSOR = registerBlock("food_processor",
+            () -> new FoodProcessorBlock(AbstractBlock.Properties.of(Material.METAL)
                     .strength(2.0F, 6.0F)
             ));
 
