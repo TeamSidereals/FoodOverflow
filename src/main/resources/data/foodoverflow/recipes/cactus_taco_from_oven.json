@@ -1,0 +1,21 @@
+{
+  "type": "foodoverflow:oven",
+  "inputs": [
+    {
+      "item": "minecraft:cactus"
+    },
+    {
+      "item": "foodoverflow:cheese_slice"
+    },
+    {
+      "item": "foodoverflow:choped_steak"
+    }
+  ],
+  "output": {
+    "item": "foodoverflow:cactus_taco"
+  },
+  "addition": {
+    "item": "minecraft:air"
+  },
+  "time" : 20
+}

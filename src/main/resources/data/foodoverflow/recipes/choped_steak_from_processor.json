@@ -1,0 +1,14 @@
+{
+  "type": "foodoverflow:food_processor",
+  "input": {
+      "item": "minecraft:cooked_beef"
+    },
+  "addition input": {
+    "item": "minecraft:air"
+  },
+  "output": {
+    "item": "foodoverflow:choped_steak",
+    "count": 4
+  },
+  "time" : 20
+}

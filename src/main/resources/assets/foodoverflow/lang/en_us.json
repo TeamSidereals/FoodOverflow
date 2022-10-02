@@ -41,5 +41,9 @@
   "effect.foodoverflow.sticky": "Sticky",
   "item.foodoverflow.salt" : "Salt",
   "block.foodoverflow.salt_ore" : "Salt Ore",
-  "block.foodoverflow.salt_block" : "Salt Block"
+  "block.foodoverflow.salt_block" : "Salt Block",
+  "item.foodoverflow.dough" : "Dough",
+  "item.foodoverflow.choped_steak" : "Choped Steak",
+  "item.foodoverflow.cooked_cactus" : "Cooked Cactus",
+  "item.foodoverflow.cactus_taco" : "Cactus Taco"
 }

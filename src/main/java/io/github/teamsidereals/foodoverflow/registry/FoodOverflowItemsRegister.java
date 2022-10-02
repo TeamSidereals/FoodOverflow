@@ -12,6 +12,7 @@ import io.github.teamsidereals.foodoverflow.item.equipment.shovel.CaramelShovel;
 import io.github.teamsidereals.foodoverflow.item.equipment.sword.CaramelSword;
 import io.github.teamsidereals.foodoverflow.item.food.FoodOverflowFoodItem;
 import io.github.teamsidereals.foodoverflow.item.food.bland.FoodOverflowBlandItem;
+import io.github.teamsidereals.foodoverflow.item.food.healthy.FoodOverflowHealthyItem;
 import io.github.teamsidereals.foodoverflow.item.food.savory.FoodOverflowSavoryItem;
 import io.github.teamsidereals.foodoverflow.item.food.sweet.ChorusFruitJamItem;
 import io.github.teamsidereals.foodoverflow.item.food.sweet.FoodOverflowSweetItem;
@@ -318,5 +319,47 @@ public class FoodOverflowItemsRegister {
             new FoodOverflowFoodItem(
                     new Item.Properties().tab(FoodOverflowItemGroup.FOOD_OVERFLOW_GROUP)
             )
+    );
+
+    public static final RegistryObject<Item> CHOPED_STEAK = ITEMS.register("choped_steak", () ->
+            new FoodOverflowSavoryItem(
+                    new Item.Properties().tab(FoodOverflowItemGroup.FOOD_OVERFLOW_GROUP)
+                            .food(new Food.Builder()
+                                    .nutrition(3)
+                                    .saturationMod(0.8f)
+                                    .build())
+            )
+                    .displayEatingEffect()
+                    .modifyDamageRes(-50,0)
+                    .modifyAbsorption(-50,0)
+    );
+
+    public static final RegistryObject<Item> COOKED_CACTUS = ITEMS.register("cooked_cactus", () ->
+            new FoodOverflowHealthyItem(
+                    new Item.Properties().tab(FoodOverflowItemGroup.FOOD_OVERFLOW_GROUP)
+                            .food(new Food.Builder()
+                                    .nutrition(2)
+                                    .saturationMod(0.25f)
+                                    .build())
+            )
+                    .displayEatingEffect()
+                    .modifyRegeneration(-100, 0)
+                    .alsoBland()
+    );
+
+    public static final RegistryObject<Item> CACTUS_TACO = ITEMS.register("cactus_taco", () ->
+            new FoodOverflowSavoryItem(
+                    new Item.Properties().tab(FoodOverflowItemGroup.FOOD_OVERFLOW_GROUP)
+                            .food(new Food.Builder()
+                                    .nutrition(6)
+                                    .saturationMod(0.8f)
+                                    .build())
+            )
+                    .displayEatingEffect()
+                    .modifyDamageRes(100, 0)
+                    .modifyAbsorption(100, 0)
+                    .modifyRegeneration(100, 0)
+                    .alsoHealthy()
+                    .alsoBland()
     );
 }
