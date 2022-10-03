@@ -1,0 +1,22 @@
+{
+  "type": "foodoverflow:oven",
+  "inputs": [
+    {
+      "item": "minecraft:potato"
+    },
+    {
+      "item": "foodoverflow:salt"
+    },
+    {
+      "item": "foodoverflow:cooking_oil"
+    }
+  ],
+  "output": {
+    "item": "foodoverflow:french_fries",
+    "count": 4
+  },
+  "addition": {
+    "item": "minecraft:air"
+  },
+  "time" : 20
+}

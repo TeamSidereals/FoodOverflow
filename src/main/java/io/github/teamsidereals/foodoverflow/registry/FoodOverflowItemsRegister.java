@@ -362,4 +362,18 @@ public class FoodOverflowItemsRegister {
                     .alsoHealthy()
                     .alsoBland()
     );
+
+    public static final RegistryObject<Item> FRENCH_FRIES = ITEMS.register("french_fries", () ->
+            new FoodOverflowSavoryItem(
+                    new Item.Properties().tab(FoodOverflowItemGroup.FOOD_OVERFLOW_GROUP)
+                            .food(new Food.Builder()
+                                    .nutrition(2)
+                                    .saturationMod(0.6f)
+                                    .build())
+            )
+                    .displayEatingEffect()
+                    .modifyDamageRes(-100, 0)
+                    .modifyAbsorption(-100, 0)
+                    .alsoBland()
+    );
 }

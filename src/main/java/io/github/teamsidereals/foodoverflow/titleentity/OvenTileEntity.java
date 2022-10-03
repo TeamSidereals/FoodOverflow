@@ -126,10 +126,10 @@ public class OvenTileEntity extends TileEntity implements ITickableTileEntity {
                 ovenData.set(1,ovenData.get(1) + 1);
             }
             else {
-                if (this.itemHandler.getStackInSlot(6).getCount() < 64
-                && this.itemHandler.getStackInSlot(7).getCount() < 64) {
-                        ItemStack output = this.getRecipe().getResultItem();
-                        ItemStack additionOutput = this.getRecipe().getAdditionOutput();
+                ItemStack output = this.getRecipe().getResultItem();
+                ItemStack additionOutput = this.getRecipe().getAdditionOutput();
+                if (this.itemHandler.getStackInSlot(6).getCount() + output.getCount() <= 64
+                && this.itemHandler.getStackInSlot(7).getCount() + additionOutput.getCount() <= 64) {
                         if ((this.itemHandler.getStackInSlot(6).getItem() == output.getItem()
                                 || this.itemHandler.getStackInSlot(6).getItem() == Items.AIR)
                         && (this.itemHandler.getStackInSlot(7).getItem() == additionOutput.getItem()

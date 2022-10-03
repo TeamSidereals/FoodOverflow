@@ -45,5 +45,6 @@
   "item.foodoverflow.dough" : "Dough",
   "item.foodoverflow.choped_steak" : "Choped Steak",
   "item.foodoverflow.cooked_cactus" : "Cooked Cactus",
-  "item.foodoverflow.cactus_taco" : "Cactus Taco"
+  "item.foodoverflow.cactus_taco" : "Cactus Taco",
+  "item.foodoverflow.french_fries" : "French Fries"
 }
