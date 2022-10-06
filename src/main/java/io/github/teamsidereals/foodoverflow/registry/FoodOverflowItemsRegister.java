@@ -390,4 +390,19 @@ public class FoodOverflowItemsRegister {
                     .modifyAbsorption(-100, 0)
                     .alsoBland()
     );
+
+    public static final RegistryObject<Item> EGG_FRIED_RICE = ITEMS.register("egg_fried_rice", () ->
+            new FoodOverflowSavoryItem(
+                    new Item.Properties().tab(FoodOverflowItemGroup.FOOD_OVERFLOW_GROUP)
+                            .food(new Food.Builder()
+                                    .nutrition(7)
+                                    .saturationMod(0.6f)
+                                    .build())
+            )
+                    .displayEatingEffect()
+                    .modifyDamageRes(100, 1)
+                    .modifyAbsorption(100, 1)
+                    .modifySpeeddown(100, 2)
+                    .alsoBland()
+    );
 }

@@ -1,0 +1,27 @@
+{
+  "type": "foodoverflow:oven",
+  "inputs": [
+    {
+      "item": "minecraft:wheat"
+    },
+    {
+      "item": "minecraft:egg"
+    },
+    {
+      "item": "minecraft:carrot"
+    },
+    {
+      "item": "foodoverflow:salt"
+    },
+    {
+      "item": "foodoverflow:cooking_oil"
+    }
+  ],
+  "output": {
+    "item": "foodoverflow:egg_fried_rice"
+  },
+  "addition": {
+    "item": "minecraft:air"
+  },
+  "time" : 20
+}
