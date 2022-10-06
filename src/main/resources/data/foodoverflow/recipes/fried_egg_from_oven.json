@@ -1,0 +1,18 @@
+{
+  "type": "foodoverflow:oven",
+  "inputs": [
+    {
+      "item": "minecraft:egg"
+    },
+    {
+      "item": "foodoverflow:cooking_oil"
+    }
+  ],
+  "output": {
+    "item": "foodoverflow:fried_egg"
+  },
+  "addition": {
+    "item": "minecraft:air"
+  },
+  "time" : 20
+}
