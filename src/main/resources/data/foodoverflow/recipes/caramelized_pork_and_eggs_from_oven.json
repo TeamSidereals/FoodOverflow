@@ -1,0 +1,21 @@
+{
+  "type": "foodoverflow:oven",
+  "inputs": [
+    {
+      "item": "minecraft:porkchop"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "minecraft:egg"
+    }
+  ],
+  "output": {
+    "item": "foodoverflow:caramelized_pork_and_eggs"
+  },
+  "addition": {
+    "item": "minecraft:air"
+  },
+  "time" : 20
+}

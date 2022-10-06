@@ -48,5 +48,7 @@
   "item.foodoverflow.cactus_taco" : "Cactus Taco",
   "item.foodoverflow.french_fries" : "French Fries",
   "item.foodoverflow.fried_egg" : "Fried Egg",
-  "item.foodoverflow.egg_fried_rice" : "Egg Fried Rice"
+  "item.foodoverflow.egg_fried_rice" : "Egg Fried Rice",
+  "item.foodoverflow.caramelized_pork_and_eggs" : "Caramelized Pork And Eggs",
+  "item.foodoverflow.pho" : "Phở"
 }

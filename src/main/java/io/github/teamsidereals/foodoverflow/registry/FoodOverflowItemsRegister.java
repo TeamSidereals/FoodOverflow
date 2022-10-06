@@ -405,4 +405,32 @@ public class FoodOverflowItemsRegister {
                     .modifySpeeddown(100, 2)
                     .alsoBland()
     );
+
+    public static final RegistryObject<Item> CARAMELIZED_PORK_AND_EGGS = ITEMS.register("caramelized_pork_and_eggs", () ->
+            new FoodOverflowSavoryItem(
+                    new Item.Properties().tab(FoodOverflowItemGroup.FOOD_OVERFLOW_GROUP)
+                            .food(new Food.Builder()
+                                    .nutrition(10)
+                                    .saturationMod(0.6f)
+                                    .build())
+            )
+                    .displayEatingEffect()
+                    .modifyDamageRes(100, 2)
+                    .modifySpeeddown(100, 2)
+                    .alsoBland()
+    );
+
+    public static final RegistryObject<Item> PHO = ITEMS.register("pho", () ->
+            new FoodOverflowSavoryItem(
+                    new Item.Properties().tab(FoodOverflowItemGroup.FOOD_OVERFLOW_GROUP)
+                            .food(new Food.Builder()
+                                    .nutrition(10)
+                                    .saturationMod(0.8f)
+                                    .build())
+            )
+                    .displayEatingEffect()
+                    .modifyDamageRes(200, 0)
+                    .modifySpeeddown(100, 1)
+                    .alsoBland()
+    );
 }
