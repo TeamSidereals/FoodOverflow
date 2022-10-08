@@ -14,6 +14,7 @@ import io.github.teamsidereals.foodoverflow.item.food.FoodOverflowFoodItem;
 import io.github.teamsidereals.foodoverflow.item.food.bland.FoodOverflowBlandItem;
 import io.github.teamsidereals.foodoverflow.item.food.healthy.FoodOverflowHealthyItem;
 import io.github.teamsidereals.foodoverflow.item.food.savory.FoodOverflowSavoryItem;
+import io.github.teamsidereals.foodoverflow.item.food.special.FortuneCookieItem;
 import io.github.teamsidereals.foodoverflow.item.food.sweet.ChorusFruitJamItem;
 import io.github.teamsidereals.foodoverflow.item.food.sweet.FoodOverflowSweetItem;
 import net.minecraft.inventory.EquipmentSlotType;
@@ -432,5 +433,16 @@ public class FoodOverflowItemsRegister {
                     .modifyDamageRes(200, 0)
                     .modifySpeeddown(100, 1)
                     .alsoBland()
+    );
+
+    public static final RegistryObject<Item> FORTUNE_COOKIE = ITEMS.register("fortune_cookie", () ->
+            new FortuneCookieItem(
+                    new Item.Properties().tab(FoodOverflowItemGroup.FOOD_OVERFLOW_GROUP)
+                            .food(new Food.Builder()
+                                    .nutrition(1)
+                                    .saturationMod(1f)
+                                    .fast()
+                                    .build())
+            )
     );
 }

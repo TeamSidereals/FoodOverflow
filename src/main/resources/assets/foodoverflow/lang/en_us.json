@@ -50,5 +50,6 @@
   "item.foodoverflow.fried_egg" : "Fried Egg",
   "item.foodoverflow.egg_fried_rice" : "Egg Fried Rice",
   "item.foodoverflow.caramelized_pork_and_eggs" : "Caramelized Pork And Eggs",
-  "item.foodoverflow.pho" : "Phở"
+  "item.foodoverflow.pho" : "Phở",
+  "item.foodoverflow.fortune_cookie" : "Fortune Cookie"
 }

@@ -1,0 +1,21 @@
+{
+  "type": "foodoverflow:oven",
+  "inputs": [
+    {
+      "item": "foodoverflow:dough"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "minecraft:paper"
+    }
+  ],
+  "output": {
+    "item": "foodoverflow:fortune_cookie"
+  },
+  "addition": {
+    "item": "minecraft:air"
+  },
+  "time" : 20
+}
